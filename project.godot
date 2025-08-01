@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="GMTK2025"
+run/main_scene="uid://d4kpic77i7iw7"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 
