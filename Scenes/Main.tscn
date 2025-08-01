@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4kpic77i7iw7"]
+
+[ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://cpd0gfq47g4b4" path="res://Assets/icon.svg" id="2_idj7w"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Planet" type="Sprite2D" parent="."]
+position = Vector2(545, 1125)
+rotation = -1.57781
+scale = Vector2(1.42938, 1.51256)
+texture = ExtResource("1_r150o")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(543, 335)
+texture = ExtResource("2_idj7w")
