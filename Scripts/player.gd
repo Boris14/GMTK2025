@@ -1,36 +1,40 @@
 extends Node2D
 class_name Player
 
-@export var rotation_speed: float
-@export var player_speed : float
-@onready var anim_tree: AnimationTree = $AnimationTree
+@export var player_default_speed := 0.2
 
-var state_machine
+@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var player_speed := player_default_speed
+@onready var state_machine : AnimationNodeStateMachinePlayback = anim_tree["parameters/playback"]
+
 var is_sitting := false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	state_machine = anim_tree["parameters/playback"]
-	pass # Replace with function body.
+func play_anim(anim: String):
+	state_machine.travel(anim)
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_pressed("space"):
-		state_machine.travel("Dance")
-		is_sitting = false
-		
-	elif Input.is_action_pressed("down"):
-		state_machine.travel("Sit")
-		is_sitting = true
-		
-	elif Input.is_action_pressed("right"):
-		state_machine.travel("Walk")
-		is_sitting = false
-		# Rotate the world
-		Events.rotate_world.emit()
-	elif !is_sitting:  # Only go to Idle if we're not sitting
-		state_machine.travel("Idle")
-	
-	
-	pass
+func _ready() -> void:
+	state_machine.travel("Walk")
+
+
+func _physics_process(delta) -> void:
+	if state_machine.get_current_node() == "Walk":
+		# Rotate world in the opposite direction of walking
+		Events.rotate_world.emit(-player_speed * delta)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey: 
+		if event.pressed:
+			if event.is_action("space"):
+				state_machine.travel("Dance")
+				is_sitting = false
+			elif event.is_action("down"):
+				state_machine.travel("Sit")
+				is_sitting = true
+			elif event.is_action("right"):
+				state_machine.travel("Walk")
+				is_sitting = false
+		elif not is_sitting:
+				state_machine.travel("Idle")
 	

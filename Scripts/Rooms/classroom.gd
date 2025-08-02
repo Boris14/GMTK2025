@@ -21,20 +21,28 @@ signal room_completed(is_successful: bool)
 
 @export var question_time := 6.0
 @export var between_questions_time := 2.0
+@export var post_questions_delay := 1.0
 
 @onready var question_bubble := %QuestionBubble as DialogBubble
 @onready var answer_bubbles : Array[DialogBubble] = [%AnswerBubble1, %AnswerBubble2, %AnswerBubble3]
+@onready var trigger_area := %TriggerArea as Area2D
 
 var question_timer : Timer
 var current_question_index := 0
 var correct_answer_count := 0
+var player : Player 
 
-func start_room():
+func start_room(in_player: Player):
+	player = in_player
+	player.play_anim("Sit")
 	start(current_question_index)
 
 func _ready():
 	if Engine.is_editor_hint():
 		return
+	
+	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
+	
 	#%Planet.visible = false
 	for ans in answer_bubbles:
 		ans.clicked.connect(_on_answer_clicked)
@@ -44,7 +52,12 @@ func _ready():
 	question_timer.timeout.connect(_on_question_timer_timeout)
 	add_child(question_timer)
 	set_is_question_visible(false)
-	start_room()
+
+
+func _on_area_entered_trigger_area(area: Area2D):
+	if area.owner.is_in_group("Player"):
+		start_room(area.owner as Player)
+		trigger_area.area_entered.disconnect(_on_area_entered_trigger_area)
 
 
 func start(question_index: int):
@@ -76,6 +89,8 @@ func _on_question_timer_timeout(has_answered := false):
 	current_question_index += 1
 	if current_question_index >= questions_answers.size():
 		room_completed.emit(correct_answer_count == questions_answers.size())
+		await get_tree().create_timer(post_questions_delay).timeout
+		player.play_anim("Walk")
 	else:
 		await get_tree().create_timer(between_questions_time).timeout
 		start(current_question_index)

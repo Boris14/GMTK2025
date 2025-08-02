@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7daf7wtjt7h0"]
+[gd_scene load_steps=12 format=3 uid="uid://7daf7wtjt7h0"]
 
 [ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="1_6k8j5"]
 [ext_resource type="Script" uid="uid://k2p5068l60fl" path="res://Scripts/Rooms/classroom.gd" id="1_7nha4"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cc6li3yu1kjj0" path="res://Assets/Emotes/emote_star.png" id="6_3s13x"]
 [ext_resource type="PackedScene" uid="uid://dr3wuuko4m517" path="res://Scenes/Dialog/AnswerBubble.tscn" id="8_s01a7"]
 [ext_resource type="Texture2D" uid="uid://dlorolsbfat16" path="res://Assets/Emotes/emote_heart.png" id="9_wblgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nha4"]
+radius = 21.3776
 
 [node name="Classroom" type="Node2D"]
 script = ExtResource("1_7nha4")
@@ -24,25 +27,25 @@ texture = ExtResource("2_7nha4")
 
 [node name="QuestionBubble" parent="." instance=ExtResource("3_ciq5a")]
 unique_name_in_owner = true
-position = Vector2(1609, 325)
+position = Vector2(1621, 319)
 rotation = 0.0202954
 scale = Vector2(2.5, 2.5)
 
 [node name="AnswerBubble1" parent="." instance=ExtResource("8_s01a7")]
 unique_name_in_owner = true
-position = Vector2(742, 408.001)
+position = Vector2(499, 289)
 rotation = 0.0202954
 scale = Vector2(2.5, 2.5)
 
 [node name="AnswerBubble2" parent="." instance=ExtResource("8_s01a7")]
 unique_name_in_owner = true
-position = Vector2(948, 400)
+position = Vector2(785, 293)
 rotation = 0.0202954
 scale = Vector2(2.5, 2.5)
 
 [node name="AnswerBubble3" parent="." instance=ExtResource("8_s01a7")]
 unique_name_in_owner = true
-position = Vector2(1153, 402.001)
+position = Vector2(1054, 307)
 rotation = 0.0202954
 scale = Vector2(2.5, 2.5)
 
@@ -53,7 +56,11 @@ rotation = -6.26289
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_6k8j5")
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(959, 670)
-scale = Vector2(0.857191, 0.831827)
-texture = ExtResource("2_7nha4")
+[node name="TriggerArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(964, 591)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_7nha4")
+debug_color = Color(0.976029, 0, 0.414963, 0.42)
+metadata/_edit_lock_ = true

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK2025"
-run/main_scene="uid://d4kpic77i7iw7"
+run/main_scene="uid://df63safv0n1uf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
@@ -30,6 +30,10 @@ window/stretch/aspect="keep_width"
 [dotnet]
 
 project/assembly_name="GMTK2025"
+
+[global_group]
+
+Player=""
 
 [input]
 
