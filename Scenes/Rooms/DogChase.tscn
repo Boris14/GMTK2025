@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://du0o3yhvq02fu"]
+
+[ext_resource type="Script" uid="uid://dnornunwbn1v2" path="res://Scripts/Rooms/dog_chase.gd" id="1_akxw6"]
+[ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="1_hramx"]
+[ext_resource type="Texture2D" uid="uid://05vohbd70v18" path="res://Assets/eye_yellow.png" id="4_m8nop"]
+[ext_resource type="PackedScene" uid="uid://cfyky1g5iiw1q" path="res://Scenes/Player.tscn" id="4_odece"]
+
+[sub_resource type="Curve2D" id="Curve2D_odece"]
+_data = {
+"points": PackedVector2Array(-69.6652, 93.1019, 69.6652, -93.1019, 15, 32, -81.5838, 68.265, 81.5838, -68.265, 194, -165, -110.265, 60.6699, 110.265, -60.6699, 391, -299, -74.6658, 20.2038, 74.6658, -20.2038, 608, -384, -128.667, 9.15236, 128.667, -9.15236, 851, -439, -62.6739, -8.10701, 62.6739, 8.10701, 1113, -440, -80.406, -18.1562, 80.406, 18.1562, 1337, -407, -77.8123, -28.5312, 77.8123, 28.5312, 1524, -353, -51.8749, -33.7187, 51.8749, 33.7187, 1715, -262, -59.6561, -57.0623, 59.6561, 57.0623, 1855, -150, 0, 0, 0, 0, 2015, 12)
+}
+point_count = 11
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m8nop"]
+radius = 31.257
+
+[node name="DogChase" type="Node2D"]
+script = ExtResource("1_akxw6")
+dog_stutter_duration = 0.5
+
+[node name="Planet" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(955, 2007)
+rotation = -6.26289
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_hramx")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-68, 1128)
+curve = SubResource("Curve2D_odece")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(15, 32)
+rotation = -0.928404
+loop = false
+metadata/_edit_lock_ = true
+
+[node name="Dog" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-68, 1128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dog"]
+texture = ExtResource("4_m8nop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dog"]
+shape = SubResource("CircleShape2D_m8nop")
+
+[node name="Animation" parent="." instance=ExtResource("4_odece")]
+position = Vector2(804, 313)

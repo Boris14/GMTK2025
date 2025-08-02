@@ -1,84 +1,59 @@
-[gd_scene load_steps=10 format=3 uid="uid://7daf7wtjt7h0"]
+[gd_scene load_steps=11 format=3 uid="uid://7daf7wtjt7h0"]
 
 [ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="1_6k8j5"]
+[ext_resource type="Script" uid="uid://k2p5068l60fl" path="res://Scripts/Rooms/classroom.gd" id="1_7nha4"]
 [ext_resource type="Texture2D" uid="uid://cpd0gfq47g4b4" path="res://Assets/icon.svg" id="2_7nha4"]
-[ext_resource type="PackedScene" uid="uid://b35x4b24scnw8" path="res://Scenes/Dialog/LongDialogBubble.tscn" id="3_ciq5a"]
+[ext_resource type="Texture2D" uid="uid://f8y20vlk73s7" path="res://Assets/Emotes/emote_heartBroken.png" id="2_ciq5a"]
+[ext_resource type="PackedScene" uid="uid://b35x4b24scnw8" path="res://Scenes/Dialog/QuestionBubble.tscn" id="3_ciq5a"]
 [ext_resource type="Texture2D" uid="uid://dnabcrl0l7wb2" path="res://Assets/Emotes/emote_drops.png" id="4_dscc8"]
 [ext_resource type="Texture2D" uid="uid://dymcbnj1xdeox" path="res://Assets/Emotes/emote_idea.png" id="5_la1f3"]
 [ext_resource type="Texture2D" uid="uid://cc6li3yu1kjj0" path="res://Assets/Emotes/emote_star.png" id="6_3s13x"]
-[ext_resource type="Texture2D" uid="uid://bgg7u2j5xjusa" path="res://Assets/clouds1.png" id="7_ulvco"]
-[ext_resource type="PackedScene" uid="uid://dr3wuuko4m517" path="res://Scenes/Dialog/ShortDialogBubble.tscn" id="8_s01a7"]
+[ext_resource type="PackedScene" uid="uid://dr3wuuko4m517" path="res://Scenes/Dialog/AnswerBubble.tscn" id="8_s01a7"]
 [ext_resource type="Texture2D" uid="uid://dlorolsbfat16" path="res://Assets/Emotes/emote_heart.png" id="9_wblgs"]
 
-[node name="Bedroom" type="Node2D"]
+[node name="Classroom" type="Node2D"]
+script = ExtResource("1_7nha4")
+questions_answers = Array[Array]([Array[Texture]([ExtResource("2_ciq5a"), ExtResource("5_la1f3"), ExtResource("6_3s13x"), ExtResource("9_wblgs")]), Array[Texture]([ExtResource("4_dscc8"), ExtResource("4_dscc8"), ExtResource("4_dscc8"), ExtResource("6_3s13x")]), Array[Texture]([ExtResource("4_dscc8"), ExtResource("4_dscc8"), ExtResource("4_dscc8"), ExtResource("5_la1f3")])])
+question_time = 5.0
+
+[node name="Teacher" type="Sprite2D" parent="."]
+position = Vector2(1469.96, 661.283)
+rotation = 0.409933
+scale = Vector2(0.717628, 2.59513)
+texture = ExtResource("2_7nha4")
+
+[node name="QuestionBubble" parent="." instance=ExtResource("3_ciq5a")]
+unique_name_in_owner = true
+position = Vector2(1609, 325)
+rotation = 0.0202954
+scale = Vector2(2.5, 2.5)
+
+[node name="AnswerBubble1" parent="." instance=ExtResource("8_s01a7")]
+unique_name_in_owner = true
+position = Vector2(742, 408.001)
+rotation = 0.0202954
+scale = Vector2(2.5, 2.5)
+
+[node name="AnswerBubble2" parent="." instance=ExtResource("8_s01a7")]
+unique_name_in_owner = true
+position = Vector2(948, 400)
+rotation = 0.0202954
+scale = Vector2(2.5, 2.5)
+
+[node name="AnswerBubble3" parent="." instance=ExtResource("8_s01a7")]
+unique_name_in_owner = true
+position = Vector2(1153, 402.001)
+rotation = 0.0202954
+scale = Vector2(2.5, 2.5)
 
 [node name="Planet" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(955, 2007)
 rotation = -6.26289
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_6k8j5")
 
-[node name="Icon2" type="Sprite2D" parent="Planet"]
-position = Vector2(195.017, -542.356)
-rotation = 0.389638
-scale = Vector2(0.287051, 1.03805)
-texture = ExtResource("2_7nha4")
-
-[node name="TextBubble" parent="Planet" instance=ExtResource("3_ciq5a")]
-position = Vector2(241.802, -662.644)
-emote_sprites = Array[Texture]([ExtResource("4_dscc8"), ExtResource("5_la1f3"), ExtResource("6_3s13x")])
-
-[node name="Clouds4" type="Sprite2D" parent="Planet"]
-visible = false
-show_behind_parent = true
-position = Vector2(-28.7992, 557.216)
-rotation = -3.09206
-scale = Vector2(0.774276, 1.91394)
-skew = -0.000793815
-texture = ExtResource("7_ulvco")
-
-[node name="Clouds3" type="Sprite2D" parent="Planet"]
-visible = false
-modulate = Color(1, 1, 0, 1)
-show_behind_parent = true
-position = Vector2(473.384, 295.342)
-rotation = 2.1286
-scale = Vector2(0.774276, 1.91394)
-skew = -0.000793934
-texture = ExtResource("7_ulvco")
-
-[node name="Clouds2" type="Sprite2D" parent="Planet"]
-visible = false
-modulate = Color(1, 0.258824, 1, 1)
-show_behind_parent = true
-position = Vector2(486.163, -273.797)
-rotation = 1.05789
-scale = Vector2(0.774276, 1.91394)
-skew = -0.000793815
-texture = ExtResource("7_ulvco")
-
-[node name="Clouds1" type="Sprite2D" parent="Planet"]
-visible = false
-show_behind_parent = true
-position = Vector2(2.12345, -559.198)
-rotation = -0.000309438
-scale = Vector2(0.773286, 1.9115)
-skew = -0.000793815
-texture = ExtResource("7_ulvco")
-
-[node name="TextBubble2" parent="Planet" instance=ExtResource("8_s01a7")]
-position = Vector2(-98.7535, -607.721)
-emote_sprites = Array[Texture]([ExtResource("9_wblgs")])
-
-[node name="TextBubble3" parent="Planet" instance=ExtResource("8_s01a7")]
-position = Vector2(-16.4354, -612.593)
-emote_sprites = Array[Texture]([ExtResource("9_wblgs")])
-
-[node name="TextBubble4" parent="Planet" instance=ExtResource("8_s01a7")]
-position = Vector2(65.564, -613.457)
-emote_sprites = Array[Texture]([ExtResource("5_la1f3")])
-
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Player" type="Sprite2D" parent="."]
 position = Vector2(959, 670)
 scale = Vector2(0.857191, 0.831827)
 texture = ExtResource("2_7nha4")

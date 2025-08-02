@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr3wuuko4m517"]
+
+[ext_resource type="Texture2D" uid="uid://d1v8qin65fkdc" path="res://Assets/body_yellowE.png" id="1_brase"]
+[ext_resource type="Script" uid="uid://glfvu8fgcsm0" path="res://Scripts/Dialog/dialog_bubble.gd" id="1_pd7se"]
+[ext_resource type="Texture2D" uid="uid://dlorolsbfat16" path="res://Assets/Emotes/emote_heart.png" id="2_wdyq7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0uac3"]
+radius = 35.1283
+
+[node name="TextBubble" type="Area2D"]
+script = ExtResource("1_pd7se")
+dialog_texture = ExtResource("2_wdyq7")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+rotation = 1.5708
+scale = Vector2(0.6, 0.3)
+texture = ExtResource("1_brase")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0uac3")
+
+[node name="DialogSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_wdyq7")

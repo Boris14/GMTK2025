@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b35x4b24scnw8"]
+
+[ext_resource type="Script" uid="uid://glfvu8fgcsm0" path="res://Scripts/Dialog/dialog_bubble.gd" id="1_7hor3"]
+[ext_resource type="Texture2D" uid="uid://d1v8qin65fkdc" path="res://Assets/body_yellowE.png" id="1_dqe02"]
+[ext_resource type="Texture2D" uid="uid://rpi5k7b1v15q" path="res://Assets/Emotes/emote_cash.png" id="2_8cbhf"]
+
+[node name="TextBubble" type="Node2D"]
+script = ExtResource("1_7hor3")
+dialog_texture = ExtResource("2_8cbhf")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1.92775, -2.12051)
+rotation = 1.5708
+scale = Vector2(0.8, 0.6)
+texture = ExtResource("1_dqe02")
+
+[node name="DialogSprite" type="Sprite2D" parent="."]
+position = Vector2(1, 2)
+texture = ExtResource("2_8cbhf")
