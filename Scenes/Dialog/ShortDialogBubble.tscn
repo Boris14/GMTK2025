@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr3wuuko4m517"]
+
+[ext_resource type="Texture2D" uid="uid://d1v8qin65fkdc" path="res://Assets/body_yellowE.png" id="1_brase"]
+[ext_resource type="Script" uid="uid://glfvu8fgcsm0" path="res://Scripts/Dialog/dialog_bubble.gd" id="1_pd7se"]
+[ext_resource type="Texture2D" uid="uid://dnabcrl0l7wb2" path="res://Assets/Emotes/emote_drops.png" id="3_7aqr5"]
+
+[node name="TextBubble" type="Node2D"]
+script = ExtResource("1_pd7se")
+emote_sprites = Array[Texture]([ExtResource("3_7aqr5")])
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+rotation = 1.5708
+scale = Vector2(0.6, 0.3)
+texture = ExtResource("1_brase")
+
+[node name="Emotes" type="Node2D" parent="."]
+
+[node name="Emote1" type="Sprite2D" parent="Emotes"]
+position = Vector2(0, 3)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_7aqr5")
