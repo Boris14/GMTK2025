@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://lnvd6katg5xr"]
+
+[ext_resource type="Script" uid="uid://bswd5nouobh1u" path="res://Scripts/audio_global.gd" id="1_mddr0"]
+[ext_resource type="AudioStream" uid="uid://ch7240qifhott" path="res://Audio/phaserUp1.ogg" id="2_81gb7"]
+[ext_resource type="AudioStream" uid="uid://r4oml0y7jyri" path="res://Audio/phaserDown1.ogg" id="3_xksgb"]
+
+[node name="AudioGlobal" type="Node"]
+script = ExtResource("1_mddr0")
+
+[node name="DogBarkPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_81gb7")
+
+[node name="CorrectAnswerPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_81gb7")
+
+[node name="WrongAnswerPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xksgb")

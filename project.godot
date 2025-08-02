@@ -17,7 +17,7 @@ config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-Events="*res://Scripts/Globals/events.gd"
+GlobalAudio="*res://Scenes/AudioGlobal.tscn"
 
 [display]
 

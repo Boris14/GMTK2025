@@ -1,25 +1,23 @@
 @tool
+class_name DialogBubble
 extends Node2D
 
-@onready var background_sprite := $Background as Sprite2D
+signal clicked(dialog_bubble)
 
-@export var emote_sprites : Array[Texture]:
-	set(new_emote_sprites):
-		emote_sprites = new_emote_sprites
-		_on_emote_sprites_changed()
+@onready var background := $Background as Sprite2D
+@onready var dialog := $DialogSprite as Sprite2D
+
+@export var dialog_texture : Texture:
+	set(new_dialog_texture):
+		dialog_texture = new_dialog_texture
+		_on_dialog_texture_changed()
 
 
-func _on_emote_sprites_changed():
-	var i := 0
-	var emotes_container = get_node_or_null("Emotes")
-	if not is_instance_valid(emotes_container):
-		return
+func _on_dialog_texture_changed():
+	if is_instance_valid(dialog):
+		dialog.texture = dialog_texture
 
-	for child in emotes_container.get_children():
-		if i >= emote_sprites.size():
-			return
-	
-		if child is Sprite2D and is_instance_valid(emote_sprites[i]):
-			child.texture = emote_sprites[i]
-			i += 1
-			
+
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		clicked.emit(self)
