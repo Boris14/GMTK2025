@@ -12,7 +12,7 @@ var player: Player
 
 func start_room(in_player: Player):
 	player = in_player
-	player.play_anim("Sit")
+	player.play_anim(Player.EPlayerAnimation.SIT)
 	sleep_timer.start(sleep_duration)
 
 
@@ -31,7 +31,7 @@ func _ready():
 
 
 func _on_sleep_timer_timeout():
-	player.play_anim("Walk")
+	player.play_anim(Player.EPlayerAnimation.WALK)
 	room_completed.emit(self)
 
 

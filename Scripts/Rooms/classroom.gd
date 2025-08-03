@@ -27,7 +27,7 @@ func start_room(in_player: Player):
 		start(current_question_index)
 		return
 	player = in_player
-	player.play_anim("Sit")
+	player.play_anim(Player.EPlayerAnimation.SIT)
 	await get_tree().create_timer(player.get_current_anim_length() + 1.0).timeout
 	start(current_question_index)
 
@@ -92,7 +92,7 @@ func _on_question_timer_timeout(has_answered := false):
 			Events.day_ruined.emit()
 		await get_tree().create_timer(post_room_delay).timeout
 		if player:
-			player.play_anim("Walk")
+			player.play_anim(Player.EPlayerAnimation.WALK)
 		room_completed.emit(self)
 	else:
 		await get_tree().create_timer(post_question_delay + between_questions_time).timeout
