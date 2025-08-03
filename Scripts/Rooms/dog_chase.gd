@@ -65,6 +65,7 @@ func _on_area_entered_dog(area: Area2D):
 
 func bite(in_player: Player):
 	player = in_player
+	Events.day_ruined.emit()
 	player.play_anim(Player.EPlayerAnimation.FALL)
 	dog_bite_timer.start(dog_bite_duration)
 	is_dog_stuttered = true

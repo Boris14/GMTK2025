@@ -13,7 +13,8 @@ enum EPlayerAnimation
 	SIT,
 	LAY,
 	FALL,
-	EAT
+	EAT,
+	DANCE
 }
 
 var current_anim : EPlayerAnimation
@@ -29,6 +30,8 @@ func play_anim(anim: EPlayerAnimation):
 			node = "Fall"
 		EPlayerAnimation.EAT:
 			node = "Eat"
+		EPlayerAnimation.DANCE:
+			node = "Dance"
 	current_anim = anim
 	if state_machine.get_current_node() == node:
 		return
