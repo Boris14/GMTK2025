@@ -20,7 +20,7 @@ func start_room():
 func _ready():
 	if Engine.is_editor_hint():
 		return
-
+	%Planet.visible = false
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 	throw_area.area_entered.connect(_on_area_entered_throw_area)
 	
@@ -46,6 +46,6 @@ func _on_area_entered_throw_area(area: Area2D):
 
 
 func _on_area_entered_trigger_area(area: Area2D):
-	if area.owner.is_in_group("Player"):
+	if area.owner and area.owner.is_in_group("Player"):
 		start_room()
 		trigger_area.area_entered.disconnect(_on_area_entered_trigger_area)

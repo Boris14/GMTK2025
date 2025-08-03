@@ -71,3 +71,7 @@ func _on_world_rotated(angle_delta: float):
 
 func _win():
 	get_tree().change_scene_to_file("res://Scenes/TestMainMenu.tscn")
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()

@@ -29,7 +29,7 @@ func start_room(in_player: Player):
 func _ready():
 	if Engine.is_editor_hint():
 		return
-	
+	%Planet.visible = false
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 	
 	thought_spawns.clear()
@@ -63,7 +63,7 @@ func stop_room(thought_to_delay: BadThought = null):
 
 
 func _on_area_entered_trigger_area(area: Area2D):
-	if area.owner.is_in_group("Player"):
+	if area.owner and area.owner.is_in_group("Player"):
 		start_room(area.owner as Player)
 		trigger_area.area_entered.disconnect(_on_area_entered_trigger_area)
 
