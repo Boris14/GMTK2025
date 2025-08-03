@@ -19,7 +19,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("ExitBtn:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -43,7 +43,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("StartBtn2:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -95,7 +95,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("ExitBtn:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -119,7 +119,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("StartBtn2:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true

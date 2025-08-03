@@ -10,6 +10,8 @@ signal pressed
 func _ready() -> void:
 	button.text = btn_title
 	rigid_body_sign.rotation = randf_range(-.75,.75)
+
+	
 	#string.rotation = randi_range(-5,5)
 	pass # Replace with function body.
 
