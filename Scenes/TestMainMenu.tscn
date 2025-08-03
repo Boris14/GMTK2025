@@ -54,16 +54,18 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="OptionsBtn" parent="." instance=ExtResource("1_hsh5n")]
+visible = false
 position = Vector2(384, -1296)
 btn_title = "OPTIONS"
 drop_length = 1000.0
 duration_drop = 7.0
 
 [node name="StartBtn" parent="." instance=ExtResource("1_hsh5n")]
-position = Vector2(808, -1056)
+position = Vector2(808, -1304)
 drop_length = 1000.0
 
 [node name="StartBtn2" parent="." instance=ExtResource("1_hsh5n")]
+visible = false
 position = Vector2(1688, -1056)
 btn_title = "LORUM IPSUM"
 drop_length = 1000.0
