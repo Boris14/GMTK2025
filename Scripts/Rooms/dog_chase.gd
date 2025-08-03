@@ -1,6 +1,7 @@
+class_name DogChase
 extends Node2D
 
-signal room_completed(is_successful: bool)
+signal room_completed(room: Node2D)
 
 @export var dog_speed := 550.0
 @export var bark_cooldown_range := Vector2(2.0, 3.0)
@@ -23,7 +24,6 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	
-	dog.area_entered.connect(_on_area_entered_dog)
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 		
 	dog_stutter_timer = Timer.new()
@@ -45,6 +45,7 @@ func _ready():
 
 func start_room():
 	dog.visible = true
+	dog.area_entered.connect(_on_area_entered_dog)
 
 
 func _process(delta):
@@ -55,7 +56,7 @@ func _process(delta):
 			_process_bark(delta)
 		else:
 			is_dog_stuttered = true
-			room_completed.emit(true)
+			room_completed.emit(self)
 
 
 func _on_area_entered_dog(area: Area2D):
@@ -79,7 +80,7 @@ func _on_area_entered_trigger_area(area: Area2D):
 
 func _on_dog_bite_timer_timeout():
 	player.play_anim("Walk")
-	room_completed.emit(false)
+	room_completed.emit(self)
 
 
 func _on_dog_stutter_timer_timeout():

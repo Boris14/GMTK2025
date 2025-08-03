@@ -1,7 +1,7 @@
-#@tool
+class_name Classroom
 extends Node2D
 
-signal room_completed(is_successful: bool)
+signal room_completed(room: Node2D)
 
 ## Used to populate questions_answers
 #@export var placeholder_texture : Texture:
@@ -88,9 +88,11 @@ func _on_question_timer_timeout(has_answered := false):
 	set_is_question_visible(false)
 	current_question_index += 1
 	if current_question_index >= questions_answers.size():
-		room_completed.emit(correct_answer_count == questions_answers.size())
+		if correct_answer_count < questions_answers.size():
+			Events.day_ruined.emit()
 		await get_tree().create_timer(post_questions_delay).timeout
 		player.play_anim("Walk")
+		room_completed.emit(self)
 	else:
 		await get_tree().create_timer(between_questions_time).timeout
 		start(current_question_index)
