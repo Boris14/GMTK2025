@@ -29,6 +29,7 @@ garbage_scene = ExtResource("2_w1ktf")
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(955, 2007)
 rotation = -6.26289
 scale = Vector2(2.5, 2.5)

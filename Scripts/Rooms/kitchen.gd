@@ -29,7 +29,7 @@ func start_room(in_player: Player):
 func _ready():
 	if Engine.is_editor_hint():
 		return
-	%Planet.queue_free()
+	
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 	
 	thought_spawns.clear()

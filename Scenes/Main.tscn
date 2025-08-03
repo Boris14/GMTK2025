@@ -50,6 +50,7 @@ _data = {
 script = ExtResource("1_kln2b")
 
 [node name="SceneTransition" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="SceneTransition"]
 z_index = 2
@@ -103,10 +104,6 @@ unique_name_in_owner = true
 position = Vector2(-270.064, 847.04)
 rotation = -2.38882
 scale = Vector2(0.4, 0.4)
-dog_speed = 450.0
-bark_cooldown_range = Vector2(2, 3)
-dog_stutter_duration = 0.15
-dog_bite_duration = 3.0
 
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
 unique_name_in_owner = true

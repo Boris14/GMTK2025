@@ -36,8 +36,7 @@ func _ready():
 		return
 	
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
-	
-	%Planet.queue_free()
+
 	for ans in answer_bubbles:
 		ans.clicked.connect(_on_answer_clicked)
 	question_timer = Timer.new()

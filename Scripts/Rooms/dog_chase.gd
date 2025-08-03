@@ -8,7 +8,6 @@ signal room_completed(room: Node2D)
 @export var dog_stutter_duration := 0.15
 @export var dog_bite_duration := 3.0
 
-@onready var planet = %Planet
 @onready var dog = %Dog as Area2D
 @onready var dog_path_follow := %PathFollow2D as PathFollow2D
 @onready var trigger_area := %TriggerArea as Area2D
@@ -23,7 +22,6 @@ var player : Player
 func _ready():
 	if Engine.is_editor_hint():
 		return
-	planet.queue_free()
 	
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 		

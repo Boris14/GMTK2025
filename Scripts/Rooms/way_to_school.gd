@@ -20,7 +20,7 @@ func start_room():
 func _ready():
 	if Engine.is_editor_hint():
 		return
-	%Planet.queue_free()
+
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 	throw_area.area_entered.connect(_on_area_entered_throw_area)
 	

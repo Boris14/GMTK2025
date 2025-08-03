@@ -26,7 +26,6 @@ func _ready():
 	sleep_timer.timeout.connect(_on_sleep_timer_timeout)
 	add_child(sleep_timer)
 	
-	%Planet.queue_free()
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 
 
