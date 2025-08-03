@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://df63safv0n1uf"]
+[gd_scene load_steps=12 format=3 uid="uid://df63safv0n1uf"]
 
 [ext_resource type="Script" uid="uid://buboc3d18pldo" path="res://Scripts/main.gd" id="1_kln2b"]
 [ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="1_r150o"]
@@ -9,8 +9,62 @@
 [ext_resource type="PackedScene" uid="uid://2tx8c5u4del" path="res://Scenes/Rooms/Kitchen.tscn" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://1b2y0qb3lw37" path="res://Scenes/Rooms/WayToSchool.tscn" id="8_50glp"]
 
+[sub_resource type="Animation" id="Animation_vy5pj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_50glp"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmxlf"]
+_data = {
+&"RESET": SubResource("Animation_vy5pj"),
+&"fade_in": SubResource("Animation_50glp")
+}
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kln2b")
+
+[node name="SceneTransition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SceneTransition"]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneTransition"]
+libraries = {
+&"": SubResource("AnimationLibrary_bmxlf")
+}
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -49,6 +103,10 @@ unique_name_in_owner = true
 position = Vector2(-270.064, 847.04)
 rotation = -2.38882
 scale = Vector2(0.4, 0.4)
+dog_speed = 450.0
+bark_cooldown_range = Vector2(2, 3)
+dog_stutter_duration = 0.15
+dog_bite_duration = 3.0
 
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
 unique_name_in_owner = true

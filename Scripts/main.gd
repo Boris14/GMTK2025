@@ -12,12 +12,20 @@ extends Node2D
 @onready var classroom := %Classroom as Classroom
 @onready var dog_chase := %DogChase as DogChase
 
+#Shitty scene transition
+@onready var color_rect: ColorRect = $SceneTransition/ColorRect
+@onready var animation_player: AnimationPlayer = $SceneTransition/AnimationPlayer
+
 # Room <-> Scene
 var room_to_scene : Dictionary = {}
 
 var is_day_ruined := false
 
 func _ready():
+	animation_player.play("fade_in")
+	color_rect.color.a = 255
+	await get_tree().create_timer(0.9).timeout
+	
 	Events.rotate_world.connect(_on_world_rotated)
 	
 	_register_room(bedroom)

@@ -1,12 +1,10 @@
 extends CanvasLayer
-class_name MainMenu
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	pass # Replace with function body.
 
 
@@ -14,23 +12,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_options_btn_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_start_btn_pressed() -> void:
-	change_scene("res://Scenes/Main.tscn")
-	#get_tree().change_scene_to_file("res://Scenes/Main.tscn")
-	pass # Replace with function body.
-
-
-func _on_start_btn_2_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_exit_btn_pressed() -> void:
-	get_tree().quit()
-	pass # Replace with function body.
 
 func change_scene(target : String) -> void:
 	animation_player.play("fade_out")
