@@ -15,7 +15,8 @@ var player: Player
 
 func start_room(in_player: Player):
 	player = in_player
-	player.play_anim(Player.EPlayerAnimation.SIT)
+	if not Events.is_first_sleep:
+		player.play_anim(Player.EPlayerAnimation.SLEEP)
 	sleep_timer.start(sleep_duration)
 
 

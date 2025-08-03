@@ -1,7 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://df63safv0n1uf"]
 
 [ext_resource type="Script" uid="uid://buboc3d18pldo" path="res://Scripts/main.gd" id="1_kln2b"]
-[ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="1_r150o"]
 [ext_resource type="Script" uid="uid://bp1qy4nw8dlrn" path="res://Scripts/Other/day_night.gd" id="2_4kpch"]
 [ext_resource type="PackedScene" uid="uid://cfyky1g5iiw1q" path="res://Scenes/Player.tscn" id="2_idj7w"]
 [ext_resource type="Texture2D" uid="uid://cdwelqy8om203" path="res://Assets/Environment/IMG_8237.png" id="3_4kpch"]
@@ -9,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://du0o3yhvq02fu" path="res://Scenes/Rooms/DogChase.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cw4exebyc3w0f" path="res://Scenes/Rooms/Bedroom.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://7daf7wtjt7h0" path="res://Scenes/Rooms/Classroom.tscn" id="6_v1gob"]
+[ext_resource type="Texture2D" uid="uid://b84rtbaer0iiy" path="res://Assets/IMG_8235.png" id="7_50glp"]
 [ext_resource type="PackedScene" uid="uid://2tx8c5u4del" path="res://Scenes/Rooms/Kitchen.tscn" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://1b2y0qb3lw37" path="res://Scenes/Rooms/WayToSchool.tscn" id="8_50glp"]
 
@@ -165,46 +165,45 @@ libraries = {
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-z_index = 1
 position = Vector2(955, 2007)
-rotation = 7.43766
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("1_r150o")
+rotation = -2.02783
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("7_50glp")
 
 [node name="Bedroom" parent="Planet" instance=ExtResource("6_jw32o")]
 unique_name_in_owner = true
-position = Vector2(-889.044, 3.44843)
-rotation = -1.13055
-scale = Vector2(0.4, 0.4)
+position = Vector2(1791.76, -49.5822)
+rotation = 1.98726
+scale = Vector2(0.806451, 0.806451)
 
 [node name="Kitchen" parent="Planet" instance=ExtResource("7_jw32o")]
 unique_name_in_owner = true
-position = Vector2(-697.094, -551.789)
-rotation = -0.457096
-scale = Vector2(0.4, 0.4)
+position = Vector2(973.055, 1505.33)
+rotation = 3.01188
+scale = Vector2(0.806451, 0.806451)
 
 [node name="WayToSchool" parent="Planet" instance=ExtResource("8_50glp")]
 unique_name_in_owner = true
-position = Vector2(579.647, -674.108)
-rotation = 1.15433
-scale = Vector2(0.4, 0.4)
+position = Vector2(-1505.97, 972.055)
+rotation = -1.69985
+scale = Vector2(0.806452, 0.806452)
 
 [node name="Classroom" parent="Planet" instance=ExtResource("6_v1gob")]
 unique_name_in_owner = true
-position = Vector2(888.843, 19.2293)
-rotation = 2.03656
-scale = Vector2(0.4, 0.4)
+position = Vector2(-1408.02, -1109.2)
+rotation = -0.459424
+scale = Vector2(0.806452, 0.806452)
 
 [node name="DogChase" parent="Planet" instance=ExtResource("5_pbw6q")]
 unique_name_in_owner = true
-position = Vector2(-270.064, 847.04)
-rotation = -2.38882
-scale = Vector2(0.4, 0.4)
+position = Vector2(789.582, -1609.16)
+rotation = 0.900292
+scale = Vector2(0.806451, 0.806451)
 
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(954, 607)
+position = Vector2(808, 620)
 
 [connection signal="screen_entered" from="DayNight/Sun/SunVisibleOnScreenNotifier2D" to="DayNight" method="_on_sun_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_entered" from="DayNight/Moon/MoonVisibleOnScreenNotifier2D" to="DayNight" method="_on_moon_visible_on_screen_notifier_2d_screen_entered"]

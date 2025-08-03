@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7wqgkr8f8v70"]
 
-[ext_resource type="Texture2D" uid="uid://05vohbd70v18" path="res://Assets/eye_yellow.png" id="1_o5r1l"]
 [ext_resource type="Script" uid="uid://j16ql4hnnntk" path="res://Scripts/Other/garbage.gd" id="1_w5io4"]
+[ext_resource type="Texture2D" uid="uid://bjm8qxk42yhoc" path="res://Assets/thrash_bag.png" id="2_w5io4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5io4"]
 radius = 43.0465
@@ -11,7 +11,9 @@ script = ExtResource("1_w5io4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.108701, 0.276183, 0.189199, 1)
-texture = ExtResource("1_o5r1l")
+position = Vector2(-9, -17)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_w5io4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w5io4")
