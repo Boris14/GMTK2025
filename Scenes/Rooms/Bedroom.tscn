@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cw4exebyc3w0f"]
 
 [ext_resource type="Script" uid="uid://cwlowqy7t1tsn" path="res://Scripts/Rooms/bedroom.gd" id="1_p2jwt"]
-[ext_resource type="Texture2D" uid="uid://djbq4t60gucxn" path="res://Assets/leg_yellowD.png" id="3_tyjpt"]
-[ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="10_qfk1b"]
+[ext_resource type="Texture2D" uid="uid://b84rtbaer0iiy" path="res://Assets/IMG_8235.png" id="2_tyjpt"]
+[ext_resource type="Texture2D" uid="uid://da6egqiaktrkl" path="res://Assets/Bed.png" id="3_tyjpt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7nha4"]
 radius = 21.3776
@@ -13,10 +13,9 @@ script = ExtResource("1_p2jwt")
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
-position = Vector2(955, 2007)
-rotation = -6.26289
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("10_qfk1b")
+position = Vector2(960, 1798)
+rotation = 6.63532
+texture = ExtResource("2_tyjpt")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -27,6 +26,7 @@ shape = SubResource("CircleShape2D_7nha4")
 debug_color = Color(0.976029, 0, 0.414963, 0.42)
 metadata/_edit_lock_ = true
 
-[node name="LegYellowD" type="Sprite2D" parent="."]
-position = Vector2(971, 662)
+[node name="Bed" type="Sprite2D" parent="."]
+position = Vector2(977, 633)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_tyjpt")

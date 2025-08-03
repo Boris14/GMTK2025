@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://1b2y0qb3lw37"]
 
 [ext_resource type="Script" uid="uid://cq4qj7ixucbet" path="res://Scripts/Rooms/way_to_school.gd" id="1_wyueo"]
-[ext_resource type="Texture2D" uid="uid://cpd0gfq47g4b4" path="res://Assets/icon.svg" id="2_2rj7x"]
 [ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="2_vpy2q"]
 [ext_resource type="PackedScene" uid="uid://b7wqgkr8f8v70" path="res://Scenes/Other/Garbage.tscn" id="2_w1ktf"]
+[ext_resource type="Texture2D" uid="uid://coant02n6wia5" path="res://Assets/Car.png" id="4_vpy2q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7nha4"]
 radius = 21.3776
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wyueo"]
-size = Vector2(320.92, 99.8748)
+size = Vector2(156.302, 160.963)
 
 [sub_resource type="Curve2D" id="Curve2D_wyueo"]
 _data = {
@@ -50,12 +50,12 @@ position = Vector2(-369, 1657)
 rotation = -1.25487
 
 [node name="Sprite2D" type="Sprite2D" parent="Car"]
-scale = Vector2(2.70313, 1)
-texture = ExtResource("2_2rj7x")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_vpy2q")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
-position = Vector2(-1.8562, 1.57184)
+position = Vector2(-3.42676, -28.972)
 shape = SubResource("RectangleShape2D_wyueo")
 
 [node name="CarPath2D" type="Path2D" parent="."]
