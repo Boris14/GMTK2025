@@ -3,25 +3,13 @@ extends Node2D
 
 signal room_completed(room: Node2D)
 
-## Used to populate questions_answers
-#@export var placeholder_texture : Texture:
-#	set(new_texture):
-#		if placeholder_texture == new_texture:
-#			return
-#		placeholder_texture = new_texture
-#		questions_answers.clear()
-#		for i in range(3):
-#			var entry : Array[Texture]
-#			for j in range(4):
-#				entry.append(placeholder_texture)
-#			questions_answers.append(entry)
-
 @export var questions_answers : Array[Array]
 @export var correct_answers := [0, 1, 1]
 
 @export var question_time := 6.0
-@export var between_questions_time := 2.0
-@export var post_room_delay := 1.0
+@export var post_question_delay := 1.5
+@export var between_questions_time := 1.5
+@export var post_room_delay := 2.0
 
 @onready var question_bubble := %QuestionBubble as DialogBubble
 @onready var answer_bubbles : Array[DialogBubble] = [%AnswerBubble1, %AnswerBubble2, %AnswerBubble3]
@@ -31,8 +19,13 @@ var question_timer : Timer
 var current_question_index := 0
 var correct_answer_count := 0
 var player : Player 
+var question_pos: Vector2
+var answer_positions: Array[Vector2]
 
 func start_room(in_player: Player):
+	if not in_player:
+		start(current_question_index)
+		return
 	player = in_player
 	player.play_anim("Sit")
 	await get_tree().create_timer(player.get_current_anim_length() + 1.0).timeout
@@ -52,7 +45,13 @@ func _ready():
 	question_timer.autostart = false
 	question_timer.timeout.connect(_on_question_timer_timeout)
 	add_child(question_timer)
-	set_is_question_visible(false)
+	
+	question_pos = question_bubble.global_position
+	for ans in answer_bubbles:
+		answer_positions.append(ans.global_position)
+
+	#await get_tree().create_timer(1.0).timeout
+	#start_room(null)
 
 
 func _on_area_entered_trigger_area(area: Area2D):
@@ -67,7 +66,7 @@ func start(question_index: int):
 	for i in range(questions_answers[question_index].size() - 1):
 		answer_bubbles[i].dialog_texture = questions_answers[question_index][i]
 	question_bubble.dialog_texture = questions_answers[question_index][answer_bubbles.size()]
-	set_is_question_visible(true)
+	activate_question()
 	question_timer.start(question_time)
 
 
@@ -86,16 +85,17 @@ func _on_question_timer_timeout(has_answered := false):
 		question_timer.stop()
 	else:
 		GlobalAudio.play_wrong_answer()
-	set_is_question_visible(false)
+	remove_question()
 	current_question_index += 1
 	if current_question_index >= questions_answers.size():
 		if correct_answer_count < questions_answers.size():
 			Events.day_ruined.emit()
 		await get_tree().create_timer(post_room_delay).timeout
-		player.play_anim("Walk")
+		if player:
+			player.play_anim("Walk")
 		room_completed.emit(self)
 	else:
-		await get_tree().create_timer(between_questions_time).timeout
+		await get_tree().create_timer(post_question_delay + between_questions_time).timeout
 		start(current_question_index)
 
 
@@ -103,3 +103,19 @@ func set_is_question_visible(is_visible: bool):
 	question_bubble.visible = is_visible
 	for ans in answer_bubbles:
 		ans.visible = is_visible
+
+
+func activate_question():
+	question_bubble.drop_and_bounce()
+	for i in range(answer_bubbles.size()):
+		answer_bubbles[i].drop_and_bounce()
+
+
+func remove_question():
+	var correct_answer := answer_bubbles[correct_answers[current_question_index]]
+	for ans in answer_bubbles:
+		if ans != correct_answer:
+			ans.pull_up()
+	await get_tree().create_timer(post_question_delay).timeout
+	question_bubble.pull_up()
+	correct_answer.pull_up()

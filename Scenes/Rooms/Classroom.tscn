@@ -27,26 +27,22 @@ texture = ExtResource("2_7nha4")
 
 [node name="QuestionBubble" parent="." instance=ExtResource("3_ciq5a")]
 unique_name_in_owner = true
-position = Vector2(1621, 319)
-rotation = 0.0202954
+position = Vector2(1590, 335)
 scale = Vector2(2.5, 2.5)
 
 [node name="AnswerBubble1" parent="." instance=ExtResource("8_s01a7")]
 unique_name_in_owner = true
-position = Vector2(499, 289)
-rotation = 0.0202954
+position = Vector2(556, 379)
 scale = Vector2(2.5, 2.5)
 
 [node name="AnswerBubble2" parent="." instance=ExtResource("8_s01a7")]
 unique_name_in_owner = true
-position = Vector2(785, 293)
-rotation = 0.0202954
+position = Vector2(818, 378)
 scale = Vector2(2.5, 2.5)
 
 [node name="AnswerBubble3" parent="." instance=ExtResource("8_s01a7")]
 unique_name_in_owner = true
-position = Vector2(1054, 307)
-rotation = 0.0202954
+position = Vector2(1073, 381)
 scale = Vector2(2.5, 2.5)
 
 [node name="Planet" type="Sprite2D" parent="."]
@@ -58,7 +54,7 @@ texture = ExtResource("1_6k8j5")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(964, 591)
+position = Vector2(999, 629)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("CircleShape2D_7nha4")

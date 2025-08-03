@@ -16,7 +16,7 @@ script = ExtResource("1_kln2b")
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(955, 2007)
-rotation = 7.42731
+rotation = 7.40449
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_r150o")
 

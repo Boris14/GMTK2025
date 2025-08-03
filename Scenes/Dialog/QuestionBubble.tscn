@@ -8,6 +8,10 @@
 script = ExtResource("1_7hor3")
 dialog_texture = ExtResource("2_8cbhf")
 
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, -600)
+width = 2.0
+
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1.92775, -2.12051)
