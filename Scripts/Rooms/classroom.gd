@@ -25,7 +25,7 @@ var answer_positions: Array[Vector2]
 func start_room(in_player: Player):
 	player = in_player
 	player.play_anim(Player.EPlayerAnimation.SIT)
-	await get_tree().create_timer(player.get_current_anim_length() + 1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	start(current_question_index)
 	
 	

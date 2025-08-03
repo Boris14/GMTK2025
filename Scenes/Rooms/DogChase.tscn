@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnornunwbn1v2" path="res://Scripts/Rooms/dog_chase.gd" id="1_akxw6"]
 [ext_resource type="Texture2D" uid="uid://mxl1vgopy805" path="res://Assets/IMG_8244.png" id="2_akxw6"]
-[ext_resource type="Texture2D" uid="uid://05vohbd70v18" path="res://Assets/eye_yellow.png" id="4_m8nop"]
+[ext_resource type="Texture2D" uid="uid://c2busnkp64s3r" path="res://Assets/Dog.png" id="3_akxw6"]
 
 [sub_resource type="Curve2D" id="Curve2D_odece"]
 _data = {
@@ -40,10 +40,11 @@ metadata/_edit_lock_ = true
 
 [node name="Dog" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-334, 1718)
+position = Vector2(-393, 1716)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dog"]
-texture = ExtResource("4_m8nop")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_akxw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dog"]
 shape = SubResource("CircleShape2D_m8nop")

@@ -46,6 +46,6 @@ func _on_area_entered_throw_area(area: Area2D):
 
 
 func _on_area_entered_trigger_area(area: Area2D):
-	if area.owner.is_in_group("Player"):
+	if area.owner and area.owner.is_in_group("Player"):
 		start_room()
 		trigger_area.area_entered.disconnect(_on_area_entered_trigger_area)

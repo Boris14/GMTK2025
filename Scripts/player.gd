@@ -40,7 +40,7 @@ func play_anim(anim: EPlayerAnimation):
 		return
 	state_machine.travel(node)
 	if current_anim == EPlayerAnimation.SLEEP:
-		await get_tree().create_timer(state_machine.get_current_length()).timeout
+		await get_tree().create_timer(2.0).timeout
 		current_anim = anim
 	else:
 		current_anim = anim
@@ -53,6 +53,10 @@ func get_current_anim_length() -> float:
 func _ready() -> void:
 	Events.day_ruined.connect(_on_day_ruined)
 	Events.day_reset.connect(_on_day_reset)
+
+	await get_tree().create_timer(10.0).timeout
+	if current_anim == EPlayerAnimation.SLEEP:
+		pass#play_anim(EPlayerAnimation.WALK)
 
 
 func _physics_process(delta) -> void:
