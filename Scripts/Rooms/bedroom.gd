@@ -24,6 +24,8 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	
+	%Planet.visible = false
+	
 	sleep_timer = Timer.new()
 	sleep_timer.one_shot = true
 	sleep_timer.autostart = false

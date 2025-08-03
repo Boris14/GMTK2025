@@ -38,7 +38,7 @@ func init():
 func _ready():
 	if Engine.is_editor_hint():
 		return
-	
+	%Planet.visible = false
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 
 	for ans in answer_bubbles:
