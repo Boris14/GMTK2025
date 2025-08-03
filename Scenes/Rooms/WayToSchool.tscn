@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://1b2y0qb3lw37"]
+
+[ext_resource type="Script" uid="uid://cq4qj7ixucbet" path="res://Scripts/Rooms/way_to_school.gd" id="1_wyueo"]
+[ext_resource type="Texture2D" uid="uid://cpd0gfq47g4b4" path="res://Assets/icon.svg" id="2_2rj7x"]
+[ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="2_vpy2q"]
+[ext_resource type="PackedScene" uid="uid://b7wqgkr8f8v70" path="res://Scenes/Other/Garbage.tscn" id="2_w1ktf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nha4"]
+radius = 21.3776
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyueo"]
+size = Vector2(320.92, 99.8748)
+
+[sub_resource type="Curve2D" id="Curve2D_wyueo"]
+_data = {
+"points": PackedVector2Array(9.94101, 132.767, -9.94101, -132.767, -349, 2169, -10.49, 227.105, 10.49, -227.105, -366, 1796, -75.95, 127.734, 75.95, -127.734, -232, 1366, -89.7591, 93.2113, 89.7591, -93.2113, 27, 1021, -227.85, 89.7591, 227.85, -89.7591, 389, 793, -223.673, 5.25909, 223.673, -5.25909, 876, 668, 0, 0, 0, 0, 1394, 761, -93.2113, -62.1409, 93.2113, 62.1409, 1699, 901, -72.4977, -107.02, 72.4977, 107.02, 2064, 1276, -50.1622, -121.829, 50.1622, 121.829, 2215, 1583)
+}
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_vpy2q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1264, 714, -12.2862, 107.442, 12.2862, -107.442, 1325, 404, 47.19, 24.2, -47.19, -24.2, 1325, 123, 30.0571, -53.8569, -30.0571, 53.8569, 1220, 264, 25.9617, -55.3965, -25.9617, 55.3965, 1142, 415, 0, 0, 0, 0, 1097, 538, 0, 0, 0, 0, 1056, 655, 0, 0, 0, 0, 1030, 730)
+}
+point_count = 8
+
+[node name="WayToSchool" type="Node2D"]
+script = ExtResource("1_wyueo")
+garbage_scene = ExtResource("2_w1ktf")
+
+[node name="Planet" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(955, 2007)
+rotation = -6.26289
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_vpy2q")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(180, 851)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_7nha4")
+debug_color = Color(0.976029, 0, 0.414963, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="Car" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-369, 1657)
+rotation = -1.25487
+
+[node name="Sprite2D" type="Sprite2D" parent="Car"]
+scale = Vector2(2.70313, 1)
+texture = ExtResource("2_2rj7x")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+position = Vector2(-1.8562, 1.57184)
+shape = SubResource("RectangleShape2D_wyueo")
+
+[node name="CarPath2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_wyueo")
+
+[node name="CarPathFollow2D" type="PathFollow2D" parent="CarPath2D"]
+unique_name_in_owner = true
+position = Vector2(-349, 2169)
+rotation = -1.64553
+loop = false
+
+[node name="ThrowPath2D" type="Path2D" parent="."]
+position = Vector2(-94, -17.9016)
+curve = SubResource("Curve2D_vpy2q")
+
+[node name="ThrowPathFollow2D" type="PathFollow2D" parent="ThrowPath2D"]
+unique_name_in_owner = true
+position = Vector2(1264, 714)
+rotation = -1.3765
+loop = false
+
+[node name="ThrowArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1175, 695.098)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThrowArea"]
+shape = SubResource("CircleShape2D_7nha4")
+debug_color = Color(0.976029, 0, 0.414963, 0.42)
+metadata/_edit_lock_ = true

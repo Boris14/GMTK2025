@@ -21,7 +21,7 @@ signal room_completed(room: Node2D)
 
 @export var question_time := 6.0
 @export var between_questions_time := 2.0
-@export var post_questions_delay := 1.0
+@export var post_room_delay := 1.0
 
 @onready var question_bubble := %QuestionBubble as DialogBubble
 @onready var answer_bubbles : Array[DialogBubble] = [%AnswerBubble1, %AnswerBubble2, %AnswerBubble3]
@@ -35,6 +35,7 @@ var player : Player
 func start_room(in_player: Player):
 	player = in_player
 	player.play_anim("Sit")
+	await get_tree().create_timer(player.get_current_anim_length() + 1.0).timeout
 	start(current_question_index)
 
 func _ready():
@@ -43,7 +44,7 @@ func _ready():
 	
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 	
-	#%Planet.visible = false
+	%Planet.queue_free()
 	for ans in answer_bubbles:
 		ans.clicked.connect(_on_answer_clicked)
 	question_timer = Timer.new()
@@ -90,7 +91,7 @@ func _on_question_timer_timeout(has_answered := false):
 	if current_question_index >= questions_answers.size():
 		if correct_answer_count < questions_answers.size():
 			Events.day_ruined.emit()
-		await get_tree().create_timer(post_questions_delay).timeout
+		await get_tree().create_timer(post_room_delay).timeout
 		player.play_anim("Walk")
 		room_completed.emit(self)
 	else:

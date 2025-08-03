@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://2tx8c5u4del"]
+
+[ext_resource type="Script" uid="uid://ce3o721hqey87" path="res://Scripts/Rooms/kitchen.gd" id="1_4lad2"]
+[ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="2_4lad2"]
+[ext_resource type="PackedScene" uid="uid://bciet2c3ay2wt" path="res://Scenes/Other/BadThought.tscn" id="2_ociu6"]
+[ext_resource type="Texture2D" uid="uid://d1v8qin65fkdc" path="res://Assets/body_yellowE.png" id="3_c6usg"]
+[ext_resource type="Texture2D" uid="uid://cpd0gfq47g4b4" path="res://Assets/icon.svg" id="4_4lad2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7nha4"]
+radius = 21.3776
+
+[node name="Kitchen" type="Node2D"]
+script = ExtResource("1_4lad2")
+bad_thought_scene = ExtResource("2_ociu6")
+
+[node name="Planet" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(955, 2007)
+rotation = -6.26289
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_4lad2")
+
+[node name="LegYellowD" type="Sprite2D" parent="."]
+position = Vector2(971, 662)
+rotation = 1.55544
+texture = ExtResource("3_c6usg")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(964, 622)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+shape = SubResource("CircleShape2D_7nha4")
+debug_color = Color(0.976029, 0, 0.414963, 0.42)
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1304, 636)
+rotation = 0.236364
+scale = Vector2(1, 2.09681)
+texture = ExtResource("4_4lad2")
+
+[node name="ThoughtSpawns" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="ThoughtSpawns"]
+position = Vector2(-92, -49)
+
+[node name="Marker2D3" type="Marker2D" parent="ThoughtSpawns"]
+position = Vector2(559, -44)
+
+[node name="Marker2D4" type="Marker2D" parent="ThoughtSpawns"]
+position = Vector2(1325, -68)
+
+[node name="Marker2D6" type="Marker2D" parent="ThoughtSpawns"]
+position = Vector2(1976, -63)

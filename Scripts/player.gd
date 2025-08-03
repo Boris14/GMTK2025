@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-@export var player_default_speed := 0.2
+@export var player_default_speed := 0.17
 
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var player_speed := player_default_speed
@@ -10,14 +10,21 @@ class_name Player
 var is_sitting := false
 
 func play_anim(anim: String):
+	if state_machine.get_current_node() == anim:
+		return
 	state_machine.travel(anim)
 	
+
+func get_current_anim_length() -> float:
+	return state_machine.get_current_length()
+
 
 func _ready() -> void:
 	state_machine.travel("Walk")
 
 
 func _physics_process(delta) -> void:
+	state_machine.get_current_length()
 	if state_machine.get_current_node() == "Walk":
 		# Rotate world in the opposite direction of walking
 		Events.rotate_world.emit(-player_speed * delta)
