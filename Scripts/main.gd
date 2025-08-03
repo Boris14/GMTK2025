@@ -19,7 +19,6 @@ var is_day_ruined := false
 
 func _ready():
 	Events.rotate_world.connect(_on_world_rotated)
-	Events.day_ruined.connect(_on_day_ruined)
 	
 	_register_room(bedroom)
 	_register_room(kitchen)
@@ -55,8 +54,6 @@ func _on_room_completed(room: Node2D):
 
 
 func _on_world_rotated(angle_delta: float):
-	planet.rotation += angle_delta
-
-
-func _on_day_ruined():
-	is_day_ruined = true
+	if is_day_ruined:
+		angle_delta *= Events.ruined_day_speed_multiplier
+	planet.rotation += angle_delta 

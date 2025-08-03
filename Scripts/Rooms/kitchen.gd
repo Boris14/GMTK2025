@@ -21,7 +21,7 @@ var bad_thoughts: Array[BadThought]
 
 func start_room(in_player: Player):
 	player = in_player
-	player.play_anim("Sit")
+	player.play_anim(Player.EPlayerAnimation.EAT)
 	spawn_thought_timer.start(spawn_thought_delay)
 	room_duration_timer.start(room_duration)
 
@@ -58,7 +58,7 @@ func stop_room(thought_to_delay: BadThought = null):
 	await get_tree().create_timer(post_room_delay).timeout
 	if is_instance_valid(thought_to_delay):
 		thought_to_delay.remove(post_room_delay)
-	player.play_anim("Walk")
+	player.play_anim(Player.EPlayerAnimation.WALK)
 	room_completed.emit(self)
 
 

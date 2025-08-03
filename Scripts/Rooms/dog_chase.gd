@@ -67,7 +67,7 @@ func _on_area_entered_dog(area: Area2D):
 
 func bite(in_player: Player):
 	player = in_player
-	player.play_anim("Sit")
+	player.play_anim(Player.EPlayerAnimation.FALL)
 	dog_bite_timer.start(dog_bite_duration)
 	is_dog_stuttered = true
 
@@ -79,7 +79,7 @@ func _on_area_entered_trigger_area(area: Area2D):
 
 
 func _on_dog_bite_timer_timeout():
-	player.play_anim("Walk")
+	player.play_anim(Player.EPlayerAnimation.WALK)
 	room_completed.emit(self)
 
 

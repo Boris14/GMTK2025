@@ -1,16 +1,53 @@
-@tool
+#@tool
 class_name DialogBubble
 extends Node2D
 
 signal clicked(dialog_bubble)
 
-@onready var background := $Background as Sprite2D
-@onready var dialog := $DialogSprite as Sprite2D
+@export var drop_time := 0.5
+@export var bounce_height := 65.0
+@export var bounce_time := 0.2
+@export var y_offset := Vector2(-130.0, 0.0)
+@export var lift_duration := 0.5
 
 @export var dialog_texture : Texture:
 	set(new_dialog_texture):
 		dialog_texture = new_dialog_texture
 		_on_dialog_texture_changed()
+
+@onready var background := $Background as Sprite2D
+@onready var dialog := $DialogSprite as Sprite2D
+
+var top_position: Vector2
+var bottom_position: Vector2
+var overshoot_y: float
+var bounce_up_y: float 
+
+func _ready():
+	bottom_position = position
+	bottom_position.y += randf_range(y_offset.x, y_offset.y)
+	top_position = bottom_position + Vector2(0, -700)
+	overshoot_y = bottom_position.y + bounce_height * 0.5
+	bounce_up_y = bottom_position.y - bounce_height * 0.3
+	visible = false
+	pull_up()
+	await get_tree().create_timer(lift_duration).timeout
+	visible = true
+
+
+func drop_and_bounce():
+	var tween := get_tree().create_tween()
+	# Drop with slight overshoot
+	tween.tween_property(self, "position:y", overshoot_y, drop_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	# Bounce up
+	tween.tween_property(self, "position:y", bounce_up_y, bounce_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	# Settle down
+	tween.tween_property(self, "position:y", bottom_position.y, bounce_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func pull_up():
+	var tween := get_tree().create_tween()
+	tween.tween_property(self, "position:y", top_position.y, lift_duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 
 func _on_dialog_texture_changed():

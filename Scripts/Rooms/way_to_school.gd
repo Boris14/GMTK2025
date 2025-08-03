@@ -12,7 +12,6 @@ signal room_completed(room: Node2D)
 @onready var car := %Car as Area2D
 @onready var car_path_follow := %CarPathFollow2D as PathFollow2D
 
-
 func start_room():
 	car.visible = true
 	car.global_position = Vector2.ZERO
@@ -31,7 +30,10 @@ func _ready():
 func _physics_process(delta):
 	if is_instance_valid(car) and car.visible:
 		if car_path_follow.progress_ratio < 1.0:
-			car_path_follow.progress += delta * car_speed
+			var actual_car_speed := car_speed
+			if Events.is_day_ruined:
+				actual_car_speed *= Events.ruined_day_speed_multiplier
+			car_path_follow.progress += delta * actual_car_speed
 			car.global_position = car_path_follow.global_position
 			car.rotation = car_path_follow.rotation
 		else:
