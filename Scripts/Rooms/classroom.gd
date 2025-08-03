@@ -23,13 +23,17 @@ var question_pos: Vector2
 var answer_positions: Array[Vector2]
 
 func start_room(in_player: Player):
-	if not in_player:
-		start(current_question_index)
-		return
 	player = in_player
 	player.play_anim(Player.EPlayerAnimation.SIT)
 	await get_tree().create_timer(player.get_current_anim_length() + 1.0).timeout
 	start(current_question_index)
+	
+	
+func init():
+	question_bubble.init()
+	for ans in answer_bubbles:
+		ans.init()
+
 
 func _ready():
 	if Engine.is_editor_hint():
@@ -48,9 +52,6 @@ func _ready():
 	question_pos = question_bubble.global_position
 	for ans in answer_bubbles:
 		answer_positions.append(ans.global_position)
-
-	#await get_tree().create_timer(1.0).timeout
-	#start_room(null)
 
 
 func _on_area_entered_trigger_area(area: Area2D):

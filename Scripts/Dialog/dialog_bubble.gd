@@ -25,10 +25,10 @@ var bounce_up_y: float
 
 func _ready():
 	bottom_position = position
-	bottom_position.y += randf_range(y_offset.x, y_offset.y)
 	top_position = bottom_position + Vector2(0, -700)
-	overshoot_y = bottom_position.y + bounce_height * 0.5
-	bounce_up_y = bottom_position.y - bounce_height * 0.3
+
+
+func init():
 	visible = false
 	pull_up()
 	await get_tree().create_timer(lift_duration).timeout
@@ -37,12 +37,16 @@ func _ready():
 
 func drop_and_bounce():
 	var tween := get_tree().create_tween()
+	var target_position := bottom_position
+	target_position.y += randf_range(y_offset.x, y_offset.y)
+	var overshoot_y = target_position.y + bounce_height * 0.5
+	var bounce_up_y = target_position.y - bounce_height * 0.3
 	# Drop with slight overshoot
 	tween.tween_property(self, "position:y", overshoot_y, drop_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	# Bounce up
 	tween.tween_property(self, "position:y", bounce_up_y, bounce_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	# Settle down
-	tween.tween_property(self, "position:y", bottom_position.y, bounce_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(self, "position:y", target_position.y, bounce_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
 func pull_up():

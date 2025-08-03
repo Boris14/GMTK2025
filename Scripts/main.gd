@@ -27,6 +27,7 @@ func _ready():
 	await get_tree().create_timer(0.9).timeout
 	
 	Events.rotate_world.connect(_on_world_rotated)
+	Events.win.connect(_win)
 	
 	_register_room(bedroom)
 	_register_room(kitchen)
@@ -40,6 +41,8 @@ func _register_room(room: Node2D) -> void:
 	if scene.pack(room) == OK:
 		room_to_scene[room] = scene
 		room.room_completed.connect(_on_room_completed)
+		if room.has_method("init"):
+			room.init()
 	else:
 		push_error("Failed to pack room: %s" % room.name)
 
@@ -55,13 +58,16 @@ func _on_room_completed(room: Node2D):
 		var new_room = scene.instantiate()
 		new_room.room_completed.connect(_on_room_completed)
 		planet.add_child(new_room)
-		
+		if new_room.has_method("init"):
+			new_room.init()
 		room_to_scene[new_room] = scene
 	else:
 		push_error("No packed scene found for room: %s" % room.name)
 
 
 func _on_world_rotated(angle_delta: float):
-	if is_day_ruined:
-		angle_delta *= Events.ruined_day_speed_multiplier
 	planet.rotation += angle_delta 
+
+
+func _win():
+	get_tree().change_scene_to_file("res://Scenes/TestMainMenu.tscn")
