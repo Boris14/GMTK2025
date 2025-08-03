@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://df63safv0n1uf"]
+[gd_scene load_steps=9 format=3 uid="uid://df63safv0n1uf"]
 
 [ext_resource type="Script" uid="uid://buboc3d18pldo" path="res://Scripts/main.gd" id="1_kln2b"]
 [ext_resource type="Texture2D" uid="uid://c5d10l1ragj2u" path="res://Assets/light4.png" id="1_r150o"]
@@ -6,23 +6,42 @@
 [ext_resource type="PackedScene" uid="uid://du0o3yhvq02fu" path="res://Scenes/Rooms/DogChase.tscn" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cw4exebyc3w0f" path="res://Scenes/Rooms/Bedroom.tscn" id="6_jw32o"]
 [ext_resource type="PackedScene" uid="uid://7daf7wtjt7h0" path="res://Scenes/Rooms/Classroom.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://2tx8c5u4del" path="res://Scenes/Rooms/Kitchen.tscn" id="7_jw32o"]
+[ext_resource type="PackedScene" uid="uid://1b2y0qb3lw37" path="res://Scenes/Rooms/WayToSchool.tscn" id="8_50glp"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kln2b")
-bedroom_path = NodePath("Planet/Bedroom")
-classroom_path = NodePath("Planet/Classroom")
-dog_chase_path = NodePath("Planet/DogChase")
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(955, 2007)
-rotation = 4.21805
+rotation = 7.42731
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_r150o")
 
+[node name="Bedroom" parent="Planet" instance=ExtResource("6_jw32o")]
+unique_name_in_owner = true
+position = Vector2(-889.044, 3.44843)
+rotation = -1.13055
+scale = Vector2(0.4, 0.4)
+
+[node name="Kitchen" parent="Planet" instance=ExtResource("7_jw32o")]
+unique_name_in_owner = true
+position = Vector2(-697.094, -551.789)
+rotation = -0.457096
+scale = Vector2(0.4, 0.4)
+
+[node name="WayToSchool" parent="Planet" instance=ExtResource("8_50glp")]
+unique_name_in_owner = true
+position = Vector2(579.647, -674.108)
+rotation = 1.15433
+scale = Vector2(0.4, 0.4)
+
 [node name="Classroom" parent="Planet" instance=ExtResource("6_v1gob")]
 unique_name_in_owner = true
-position = Vector2(-384.847, -801.439)
+position = Vector2(888.843, 19.2293)
+rotation = 2.03656
 scale = Vector2(0.4, 0.4)
 
 [node name="DogChase" parent="Planet" instance=ExtResource("5_pbw6q")]
@@ -31,12 +50,7 @@ position = Vector2(-270.064, 847.04)
 rotation = -2.38882
 scale = Vector2(0.4, 0.4)
 
-[node name="Bedroom" parent="Planet" instance=ExtResource("6_jw32o")]
-unique_name_in_owner = true
-position = Vector2(-889.044, 3.44839)
-rotation = -1.13055
-scale = Vector2(0.4, 0.4)
-
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(954, 607)

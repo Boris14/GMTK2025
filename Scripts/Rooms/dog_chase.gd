@@ -3,7 +3,7 @@ extends Node2D
 
 signal room_completed(room: Node2D)
 
-@export var dog_speed := 550.0
+@export var dog_speed := 450.0
 @export var bark_cooldown_range := Vector2(2.0, 3.0)
 @export var dog_stutter_duration := 0.15
 @export var dog_bite_duration := 3.0
@@ -23,6 +23,7 @@ var player : Player
 func _ready():
 	if Engine.is_editor_hint():
 		return
+	planet.queue_free()
 	
 	trigger_area.area_entered.connect(_on_area_entered_trigger_area)
 		
@@ -38,7 +39,6 @@ func _ready():
 	dog_bite_timer.timeout.connect(_on_dog_bite_timer_timeout)
 	add_child(dog_bite_timer)
 	
-	planet.visible = false
 	dog.visible = false
 	dog.input_event.connect(_on_dog_input_event)
 

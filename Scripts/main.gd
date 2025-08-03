@@ -1,25 +1,19 @@
 class_name Main
 extends Node2D
 
-@export_node_path("Bedroom") var bedroom_path
-@export_node_path("Classroom") var classroom_path
-@export_node_path("DogChase") var dog_chase_path
-
 @export var room_reload_delay := 10.0
 
 @onready var player := %Player as Player
 @onready var planet := %Planet as Node2D
 
 @onready var bedroom := %Bedroom as Bedroom
+@onready var kitchen := %Kitchen as Kitchen
+@onready var way_to_school := %WayToSchool as WayToSchool
 @onready var classroom := %Classroom as Classroom
 @onready var dog_chase := %DogChase as DogChase
 
 # Room <-> Scene
 var room_to_scene : Dictionary = {}
-
-var bedroom_scene := PackedScene.new()
-var classroom_scene := PackedScene.new()
-var dog_chase_scene := PackedScene.new()
 
 var is_day_ruined := false
 
@@ -28,6 +22,8 @@ func _ready():
 	Events.day_ruined.connect(_on_day_ruined)
 	
 	_register_room(bedroom)
+	_register_room(kitchen)
+	_register_room(way_to_school)
 	_register_room(classroom)
 	_register_room(dog_chase)
 
