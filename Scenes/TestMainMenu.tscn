@@ -1,0 +1,189 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnlk0wmwqee1w"]
+
+[ext_resource type="Script" uid="uid://bmgt0cijpwd7" path="res://Scenes/Menus/test_main_menu.gd" id="1_0od6y"]
+[ext_resource type="PackedScene" uid="uid://cfd1x4inrow4y" path="res://Scenes/pin_joint_2d.tscn" id="1_hsh5n"]
+
+[sub_resource type="Animation" id="Animation_fh5gq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExitBtn:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1080, -1304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExitBtn:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartBtn2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1536, -1056)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartBtn2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartBtn:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(656, -1056)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OptionsBtn:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, -1296)]
+}
+
+[sub_resource type="Animation" id="Animation_0od6y"]
+resource_name = "menu_drops"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExitBtn:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1080, -1304), Vector2(1080, -392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExitBtn:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartBtn2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1536, -1056), Vector2(1536, -144)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartBtn2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartBtn:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(656, -1056), Vector2(656, -144)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OptionsBtn:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232, -1296), Vector2(232, -384)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ferv"]
+_data = {
+&"RESET": SubResource("Animation_fh5gq"),
+&"menu_drops": SubResource("Animation_0od6y")
+}
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_0od6y")
+
+[node name="OptionsBtn" parent="." instance=ExtResource("1_hsh5n")]
+position = Vector2(232, -1296)
+btn_title = "OPTIONS"
+
+[node name="StartBtn" parent="." instance=ExtResource("1_hsh5n")]
+position = Vector2(656, -1056)
+
+[node name="StartBtn2" parent="." instance=ExtResource("1_hsh5n")]
+position = Vector2(1536, -1056)
+btn_title = "LORUM IPSUM"
+
+[node name="ExitBtn" parent="." instance=ExtResource("1_hsh5n")]
+position = Vector2(1080, -1304)
+btn_title = "EXIT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6ferv")
+}
+
+[connection signal="pressed" from="OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="StartBtn2" to="." method="_on_start_btn_2_pressed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
