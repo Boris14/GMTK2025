@@ -129,40 +129,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_bmxlf")
 }
 
-[node name="DayNight" type="Node2D" parent="."]
-position = Vector2(954, 1991)
-script = ExtResource("2_4kpch")
-rotation_speed = 0.1
-
-[node name="Sun" type="Area2D" parent="DayNight"]
-position = Vector2(0, -1805)
-
-[node name="Sun" type="Sprite2D" parent="DayNight/Sun"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_4kpch")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DayNight/Sun"]
-shape = SubResource("CircleShape2D_4kpch")
-
-[node name="SunVisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="DayNight/Sun"]
-
-[node name="Moon" type="Area2D" parent="DayNight"]
-position = Vector2(0, 1745)
-
-[node name="Moon" type="Sprite2D" parent="DayNight/Moon"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_grg3l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DayNight/Moon"]
-shape = SubResource("CircleShape2D_grg3l")
-
-[node name="MoonVisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="DayNight/Moon"]
-
-[node name="DayNightAnimationPlayer" type="AnimationPlayer" parent="DayNight"]
-libraries = {
-&"": SubResource("AnimationLibrary_frkhe")
-}
-
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(955, 2007)
@@ -175,8 +141,6 @@ unique_name_in_owner = true
 position = Vector2(1791.76, -49.5822)
 rotation = 1.98726
 scale = Vector2(0.806451, 0.806451)
-sleep_duration = 7.0
-dance_duration = 3.0
 
 [node name="Kitchen" parent="Planet" instance=ExtResource("7_jw32o")]
 unique_name_in_owner = true
@@ -201,6 +165,43 @@ unique_name_in_owner = true
 position = Vector2(789.582, -1609.16)
 rotation = 0.900292
 scale = Vector2(0.806451, 0.806451)
+
+[node name="DayNight" type="Node2D" parent="."]
+position = Vector2(954, 1991)
+rotation = -0.537561
+script = ExtResource("2_4kpch")
+rotation_speed = 0.1
+
+[node name="Sun" type="Area2D" parent="DayNight"]
+position = Vector2(0, -1923)
+scale = Vector2(0.8, 0.8)
+
+[node name="Sun" type="Sprite2D" parent="DayNight/Sun"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4kpch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DayNight/Sun"]
+shape = SubResource("CircleShape2D_4kpch")
+
+[node name="SunVisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="DayNight/Sun"]
+
+[node name="Moon" type="Area2D" parent="DayNight"]
+position = Vector2(0, 1900)
+scale = Vector2(0.8, 0.8)
+
+[node name="Moon" type="Sprite2D" parent="DayNight/Moon"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_grg3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DayNight/Moon"]
+shape = SubResource("CircleShape2D_grg3l")
+
+[node name="MoonVisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="DayNight/Moon"]
+
+[node name="DayNightAnimationPlayer" type="AnimationPlayer" parent="DayNight"]
+libraries = {
+&"": SubResource("AnimationLibrary_frkhe")
+}
 
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
 unique_name_in_owner = true
