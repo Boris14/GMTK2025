@@ -1,4 +1,5 @@
 extends Node2D
+class_name BigPhysBtn
 
 @export var btn_title: String
 @export var drop_length: float

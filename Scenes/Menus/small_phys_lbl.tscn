@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcxrhftc0jhaa"]
+
+[ext_resource type="Script" uid="uid://bpak1ec63hw2v" path="res://Scripts/UI/small_phys_lbl.gd" id="1_135bb"]
+[ext_resource type="Texture2D" uid="uid://d1v8qin65fkdc" path="res://Assets/body_yellowE.png" id="2_4fqpq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cclfl"]
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a2kew"]
+radius = 3.63881
+height = 659.289
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2kew"]
+size = Vector2(281.038, 119.778)
+
+[node name="SmallPhysLbl" type="Node2D"]
+script = ExtResource("1_135bb")
+lbl_title = "Title"
+duration_drop = 1.0
+
+[node name="Begining" type="StaticBody2D" parent="."]
+position = Vector2(-2.66, 0)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Begining"]
+node_a = NodePath("..")
+node_b = NodePath("../../String")
+
+[node name="Sprite2D" type="Sprite2D" parent="Begining"]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4fqpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Begining"]
+shape = SubResource("CapsuleShape2D_cclfl")
+
+[node name="String" type="RigidBody2D" parent="."]
+position = Vector2(0, 71)
+
+[node name="Sprite2D" type="Sprite2D" parent="String"]
+position = Vector2(1.86786e-05, -70)
+scale = Vector2(0.0917539, 2.63905)
+texture = ExtResource("2_4fqpq")
+offset = Vector2(0.161743, 137.571)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="String"]
+position = Vector2(0, 282)
+shape = SubResource("CapsuleShape2D_a2kew")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="String"]
+position = Vector2(-1, 619)
+rotation = 0.36962
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="String/RigidBody2D"]
+position = Vector2(0, -1)
+rotation = -0.0102082
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="String/RigidBody2D"]
+custom_minimum_size = Vector2(110, 20)
+offset_left = -121.0
+offset_right = 123.0
+offset_bottom = 91.0
+pivot_offset = Vector2(78, 12)
+color = Color(0.493114, 0.22743, 1.92523e-07, 1)
+
+[node name="HBoxContainer" type="VBoxContainer" parent="String/RigidBody2D/ColorRect"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="String/RigidBody2D/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="String/RigidBody2D/ColorRect/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+text = "START"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="String/RigidBody2D"]
+position = Vector2(1, 45.9573)
+shape = SubResource("RectangleShape2D_a2kew")
+
+[connection signal="pressed" from="String/RigidBody2D/ColorRect/HBoxContainer/Button" to="." method="_on_button_pressed"]

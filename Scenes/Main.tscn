@@ -132,7 +132,7 @@ libraries = {
 [node name="DayNight" type="Node2D" parent="."]
 position = Vector2(954, 1991)
 script = ExtResource("2_4kpch")
-rotation_speed = 1.0
+rotation_speed = 0.1
 
 [node name="Sun" type="Area2D" parent="DayNight"]
 position = Vector2(0, -1805)

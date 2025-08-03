@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cfd1x4inrow4y"]
 
 [ext_resource type="Texture2D" uid="uid://d1v8qin65fkdc" path="res://Assets/body_yellowE.png" id="1_a2kew"]
-[ext_resource type="Script" uid="uid://da0q68vvff1mf" path="res://Scripts/UI/rigidbody_sign.gd" id="1_cclfl"]
+[ext_resource type="Script" uid="uid://da0q68vvff1mf" path="res://Scripts/UI/big_phys_btn.gd" id="1_cclfl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cclfl"]
 height = 48.0
@@ -11,9 +11,9 @@ radius = 3.63881
 height = 659.289
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2kew"]
-size = Vector2(347, 195)
+size = Vector2(281.038, 119.778)
 
-[node name="RigidBodySign" type="Node2D"]
+[node name="BigPhysBtn" type="Node2D"]
 script = ExtResource("1_cclfl")
 btn_title = "START"
 drop_length = 200.0
@@ -76,6 +76,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Title" type="Label" parent="String/RigidBody2D/ColorRect/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Title"

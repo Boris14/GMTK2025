@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnlk0wmwqee1w"]
+[gd_scene load_steps=7 format=3 uid="uid://cnlk0wmwqee1w"]
 
 [ext_resource type="Script" uid="uid://bmgt0cijpwd7" path="res://Scenes/Menus/test_main_menu.gd" id="1_0od6y"]
-[ext_resource type="PackedScene" uid="uid://cfd1x4inrow4y" path="res://Scenes/pin_joint_2d.tscn" id="1_hsh5n"]
+[ext_resource type="PackedScene" uid="uid://cfd1x4inrow4y" path="res://Scenes/BigPhysBtn.tscn" id="1_hsh5n"]
+[ext_resource type="PackedScene" uid="uid://bcxrhftc0jhaa" path="res://Scenes/Menus/small_phys_lbl.tscn" id="3_fh5gq"]
 
 [sub_resource type="Animation" id="Animation_fh5gq"]
 length = 0.001
@@ -57,23 +58,17 @@ color = Color(0, 0, 0, 0)
 visible = false
 position = Vector2(384, -1296)
 btn_title = "OPTIONS"
-drop_length = 1000.0
+drop_length = 1100.0
 duration_drop = 7.0
 
 [node name="StartBtn" parent="." instance=ExtResource("1_hsh5n")]
 position = Vector2(808, -1304)
-drop_length = 1000.0
-
-[node name="StartBtn2" parent="." instance=ExtResource("1_hsh5n")]
-visible = false
-position = Vector2(1688, -1056)
-btn_title = "LORUM IPSUM"
-drop_length = 1000.0
+drop_length = 1100.0
 
 [node name="ExitBtn" parent="." instance=ExtResource("1_hsh5n")]
 position = Vector2(1232, -1304)
 btn_title = "EXIT"
-drop_length = 1000.0
+drop_length = 1100.0
 duration_drop = 7.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -81,7 +76,36 @@ libraries = {
 &"": SubResource("AnimationLibrary_6ferv")
 }
 
+[node name="SmallPhysLbl" parent="." instance=ExtResource("3_fh5gq")]
+position = Vector2(198, -1816)
+lbl_title = "Bobi"
+drop_length = 1300.0
+duration_drop = 11.0
+
+[node name="SmallPhysLbl2" parent="." instance=ExtResource("3_fh5gq")]
+position = Vector2(583, -1816)
+lbl_title = "Viktor"
+drop_length = 1300.0
+duration_drop = 12.0
+
+[node name="SmallPhysLbl3" parent="." instance=ExtResource("3_fh5gq")]
+position = Vector2(933, -1816)
+lbl_title = "Deya"
+drop_length = 1300.0
+duration_drop = 13.0
+
+[node name="SmallPhysLbl4" parent="." instance=ExtResource("3_fh5gq")]
+position = Vector2(1319, -1816)
+lbl_title = "Kalo"
+drop_length = 1300.0
+duration_drop = 14.0
+
+[node name="SmallPhysLbl5" parent="." instance=ExtResource("3_fh5gq")]
+visible = false
+position = Vector2(1680, -1598)
+drop_length = 1300.0
+duration_drop = 15.0
+
 [connection signal="pressed" from="OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="StartBtn2" to="." method="_on_start_btn_2_pressed"]
 [connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]
