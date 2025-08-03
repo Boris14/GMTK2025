@@ -14,10 +14,11 @@ enum EPlayerAnimation
 	LAY,
 	FALL,
 	EAT,
-	DANCE
+	DANCE,
+	SLEEP
 }
 
-var current_anim : EPlayerAnimation
+var current_anim := EPlayerAnimation.SLEEP
 
 func play_anim(anim: EPlayerAnimation):
 	var node : String
@@ -30,12 +31,19 @@ func play_anim(anim: EPlayerAnimation):
 			node = "Fall"
 		EPlayerAnimation.EAT:
 			node = "Eat"
+		EPlayerAnimation.SLEEP:
+			node = "Sleep"
 		EPlayerAnimation.DANCE:
+			state_machine.set("parameters/conditions/idle", true)
 			node = "Dance"
-	current_anim = anim
 	if state_machine.get_current_node() == node:
 		return
 	state_machine.travel(node)
+	if current_anim == EPlayerAnimation.SLEEP:
+		await get_tree().create_timer(state_machine.get_current_length()).timeout
+		current_anim = anim
+	else:
+		current_anim = anim
 	
 
 func get_current_anim_length() -> float:
@@ -43,7 +51,6 @@ func get_current_anim_length() -> float:
 
 
 func _ready() -> void:
-	state_machine.travel("Walk")
 	Events.day_ruined.connect(_on_day_ruined)
 	Events.day_reset.connect(_on_day_reset)
 
