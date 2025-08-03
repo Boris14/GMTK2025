@@ -9,8 +9,6 @@ radius = 21.3776
 
 [node name="Bedroom" type="Node2D"]
 script = ExtResource("1_p2jwt")
-sleep_duration = null
-dance_duration = null
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true

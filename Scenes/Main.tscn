@@ -175,6 +175,8 @@ unique_name_in_owner = true
 position = Vector2(1791.76, -49.5822)
 rotation = 1.98726
 scale = Vector2(0.806451, 0.806451)
+sleep_duration = 7.0
+dance_duration = 3.0
 
 [node name="Kitchen" parent="Planet" instance=ExtResource("7_jw32o")]
 unique_name_in_owner = true
