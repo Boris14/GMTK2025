@@ -16,8 +16,11 @@ size = Vector2(347, 195)
 [node name="RigidBodySign" type="Node2D"]
 script = ExtResource("1_cclfl")
 btn_title = "START"
+drop_length = 200.0
+duration_drop = 3.0
 
 [node name="Begining" type="StaticBody2D" parent="."]
+position = Vector2(-2.66, 0)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Begining"]
 node_a = NodePath("..")

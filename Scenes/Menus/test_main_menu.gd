@@ -1,20 +1,9 @@
 extends CanvasLayer
 class_name MainMenu
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var tween1 = get_tree().create_tween()
-	var tween2 = get_tree().create_tween()
-	var tween3 = get_tree().create_tween()
-	var tween4 = get_tree().create_tween()
-	
-	tween1.tween_property($OptionsBtn,"position",Vector2(0,150),2)
-	tween2.tween_property($StartBtn,"position",Vector2(200,150),2)
-	tween3.tween_property($StartBtn2,"position",Vector2(300,150),2)
-	tween4.tween_property($ExitBtn,"position",Vector2(400,150),2)
-	animation_player.play("menu_drops")
+
 	pass # Replace with function body.
 
 

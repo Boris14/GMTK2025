@@ -1,21 +1,21 @@
 [gd_scene load_steps=63 format=3 uid="uid://cfyky1g5iiw1q"]
 
-[ext_resource type="Texture2D" uid="uid://uiladt2st5gl" path="res://Assets/GBot/gBot_arm_l.png" id="1_1e7my"]
+[ext_resource type="Texture2D" uid="uid://o06plq2pj6av" path="res://Assets/GBot/gBot_arm_l.png" id="1_1e7my"]
 [ext_resource type="Script" uid="uid://dymaa71ef71or" path="res://Scripts/player.gd" id="1_arntx"]
-[ext_resource type="Texture2D" uid="uid://bfpwi457ay23e" path="res://Assets/GBot/gBot_forearm_l.png" id="2_arntx"]
-[ext_resource type="Texture2D" uid="uid://cb2toc8iadbro" path="res://Assets/GBot/gBot_body.png" id="3_lslt6"]
-[ext_resource type="Texture2D" uid="uid://62ntust5ur7v" path="res://Assets/GBot/gBot_head.png" id="4_ulo2v"]
-[ext_resource type="Texture2D" uid="uid://bs74pl5xils17" path="res://Assets/GBot/gBot_jaw.png" id="5_1iu4k"]
-[ext_resource type="Texture2D" uid="uid://d181n4652pqg1" path="res://Assets/GBot/gBot_complete.png" id="6_m0x7a"]
-[ext_resource type="Texture2D" uid="uid://cyds4o18os4ri" path="res://Assets/GBot/gBot_leg_l.png" id="7_5v66d"]
-[ext_resource type="Texture2D" uid="uid://me8sok5tag76" path="res://Assets/GBot/gBot_hip.png" id="8_x63xi"]
-[ext_resource type="Texture2D" uid="uid://cdnfn1suuydij" path="res://Assets/GBot/gBot_leg_r.png" id="9_i2e8t"]
-[ext_resource type="Texture2D" uid="uid://yq16npbggacp" path="res://Assets/GBot/gBot_shin_l.png" id="10_qidb7"]
-[ext_resource type="Texture2D" uid="uid://cco1aygyeytyk" path="res://Assets/GBot/gBot_shin_r.png" id="11_70hv0"]
-[ext_resource type="Texture2D" uid="uid://yxrm7ttbsnry" path="res://Assets/GBot/gBot_foot_l.png" id="12_8flut"]
-[ext_resource type="Texture2D" uid="uid://dbhsqkkq537tf" path="res://Assets/GBot/gBot_foot_r.png" id="13_u7x0b"]
-[ext_resource type="Texture2D" uid="uid://ki80dqieox3m" path="res://Assets/GBot/gBot_arm_r.png" id="14_utwlt"]
-[ext_resource type="Texture2D" uid="uid://brmb676iqxfri" path="res://Assets/GBot/gBot_forearm_r.png" id="15_kih0c"]
+[ext_resource type="Texture2D" uid="uid://cobmfa3eex2pe" path="res://Assets/GBot/gBot_forearm_l.png" id="2_arntx"]
+[ext_resource type="Texture2D" uid="uid://vogendwvhit4" path="res://Assets/GBot/gBot_body.png" id="3_lslt6"]
+[ext_resource type="Texture2D" uid="uid://ch4ieg0mfw1db" path="res://Assets/GBot/gBot_head.png" id="4_ulo2v"]
+[ext_resource type="Texture2D" uid="uid://3v0dvty8lgjm" path="res://Assets/GBot/gBot_jaw.png" id="5_1iu4k"]
+[ext_resource type="Texture2D" uid="uid://dxcgmguwqe1je" path="res://Assets/GBot/gBot_complete.png" id="6_m0x7a"]
+[ext_resource type="Texture2D" uid="uid://bxqjyra2ht6o0" path="res://Assets/GBot/gBot_leg_l.png" id="7_5v66d"]
+[ext_resource type="Texture2D" uid="uid://dg6ti1o5kuh6v" path="res://Assets/GBot/gBot_hip.png" id="8_x63xi"]
+[ext_resource type="Texture2D" uid="uid://bc4ufl5knh133" path="res://Assets/GBot/gBot_leg_r.png" id="9_i2e8t"]
+[ext_resource type="Texture2D" uid="uid://c28rkbkkguvii" path="res://Assets/GBot/gBot_shin_l.png" id="10_qidb7"]
+[ext_resource type="Texture2D" uid="uid://bh4ith8bm3fea" path="res://Assets/GBot/gBot_shin_r.png" id="11_70hv0"]
+[ext_resource type="Texture2D" uid="uid://cv1fw1bxbwwu8" path="res://Assets/GBot/gBot_foot_l.png" id="12_8flut"]
+[ext_resource type="Texture2D" uid="uid://081qco0cawts" path="res://Assets/GBot/gBot_foot_r.png" id="13_u7x0b"]
+[ext_resource type="Texture2D" uid="uid://bsjsxlehbhsxs" path="res://Assets/GBot/gBot_arm_r.png" id="14_utwlt"]
+[ext_resource type="Texture2D" uid="uid://cqgxf8f483cuo" path="res://Assets/GBot/gBot_forearm_r.png" id="15_kih0c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_arntx"]
 radius = 22.0
@@ -114,9 +114,9 @@ joint_data/1/bone_index = 8
 joint_data/1/bone2d_node = NodePath("Hip/ArmR/ForeArmR")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = -66.667
-joint_data/1/constraint_angle_max = 31.111
-joint_data/1/constraint_angle_invert = true
+joint_data/1/constraint_angle_min = -62.733
+joint_data/1/constraint_angle_max = -12.167
+joint_data/1/constraint_angle_invert = false
 joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
 
@@ -128,7 +128,7 @@ joint_data/0/bone_index = 9
 joint_data/0/bone2d_node = NodePath("Hip/ArmL")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = -115.556
+joint_data/0/constraint_angle_min = -72.277
 joint_data/0/constraint_angle_max = 13.333
 joint_data/0/constraint_angle_invert = true
 joint_data/0/constraint_in_localspace = true
@@ -1756,7 +1756,7 @@ states/Start/position = Vector2(139.2, 100.435)
 states/Walk/node = SubResource("AnimationNodeAnimation_qidb7")
 states/Walk/position = Vector2(211.4, 220.208)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_m0x7a"), "Idle", "Dance", SubResource("AnimationNodeStateMachineTransition_i2e8t"), "Dance", "Idle", SubResource("AnimationNodeStateMachineTransition_qidb7"), "Idle", "RESET", SubResource("AnimationNodeStateMachineTransition_70hv0"), "RESET", "End", SubResource("AnimationNodeStateMachineTransition_8flut"), "Idle", "Sit", SubResource("AnimationNodeStateMachineTransition_u7x0b"), "Sit", "Idle", SubResource("AnimationNodeStateMachineTransition_utwlt"), "Run", "Fall", SubResource("AnimationNodeStateMachineTransition_kih0c"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_lyrkg"), "Sit", "Eat", SubResource("AnimationNodeStateMachineTransition_c43xd"), "Eat", "Sit", SubResource("AnimationNodeStateMachineTransition_avx33"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_rxg2u"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_xixlo"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_bfbt0"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_wosd6"), "Walk", "SadWalk", SubResource("AnimationNodeStateMachineTransition_hkrn1"), "SadWalk", "Walk", SubResource("AnimationNodeStateMachineTransition_wpo1r")]
-graph_offset = Vector2(-8, -4)
+graph_offset = Vector2(62, 100)
 
 [node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_arntx")
@@ -1768,30 +1768,31 @@ scale = Vector2(0.35, 0.35)
 [node name="Body" type="Node2D" parent="CharacterContainer"]
 
 [node name="GBotArmL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(398.996, 378.008)
-rotation = 0.0911058
-scale = Vector2(0.999919, 0.999919)
+position = Vector2(398.82, 390.211)
+rotation = 0.232705
+scale = Vector2(1.00017, 1.00017)
 texture = ExtResource("1_1e7my")
 offset = Vector2(12, 13)
 
 [node name="GBotForearmL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(386.099, 486.29)
-rotation = -0.0832802
-scale = Vector2(0.999748, 0.999748)
+position = Vector2(370.764, 495.615)
+rotation = 0.0583188
+scale = Vector2(0.999995, 0.999995)
 texture = ExtResource("2_arntx")
 offset = Vector2(22, 50)
 
 [node name="GBotHead" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(325, 297.013)
-rotation = -0.0218723
-scale = Vector2(0.999833, 0.999833)
+position = Vector2(324.774, 309.223)
+rotation = -0.0449904
+scale = Vector2(1.00114, 1.00114)
 texture = ExtResource("4_ulo2v")
 offset = Vector2(11, -176)
 
 [node name="GBotJaw" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(239.379, 268.884)
-rotation = -0.0218723
-scale = Vector2(0.999805, 0.999805)
+visible = false
+position = Vector2(238.412, 283.046)
+rotation = -0.0449904
+scale = Vector2(1.0011, 1.0011)
 texture = ExtResource("5_1iu4k")
 offset = Vector2(106.5, -18)
 
@@ -1800,16 +1801,23 @@ visible = false
 position = Vector2(994, 400)
 texture = ExtResource("6_m0x7a")
 
+[node name="GBotShinL" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(354.52, 682.019)
+rotation = -0.0236204
+scale = Vector2(1.00022, 1.00022)
+texture = ExtResource("10_qidb7")
+offset = Vector2(17, 18)
+
 [node name="GBotLegL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(367.998, 550)
-rotation = -0.286958
-scale = Vector2(0.999835, 0.999835)
+position = Vector2(367.772, 562.19)
+rotation = -0.132889
+scale = Vector2(1.00037, 1.00037)
 texture = ExtResource("7_5v66d")
 offset = Vector2(-18, 42)
 
 [node name="GBotHip" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(326, 536)
-scale = Vector2(0.999947, 0.999947)
+position = Vector2(325.774, 548.19)
+scale = Vector2(0.999944, 0.999944)
 texture = ExtResource("8_x63xi")
 offset = Vector2(-7, -13)
 
@@ -1827,52 +1835,45 @@ position = Vector2(322, 404)
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_arntx")
 
-[node name="GBotLegR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(265.003, 545.999)
-rotation = -0.125876
-scale = Vector2(0.999927, 0.999927)
-texture = ExtResource("9_i2e8t")
-offset = Vector2(-8, 52)
-
-[node name="GBotShinL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(373.29, 670.381)
-rotation = -0.179669
-scale = Vector2(0.999665, 0.999665)
-texture = ExtResource("10_qidb7")
-offset = Vector2(17, 18)
-
 [node name="GBotFootL" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(377.482, 766.167)
-rotation = -0.252022
-scale = Vector2(0.999929, 0.999929)
+position = Vector2(343.77, 777.344)
+rotation = -0.230952
+scale = Vector2(1.00081, 1.00081)
 texture = ExtResource("12_8flut")
 offset = Vector2(51, 7)
 
 [node name="GBotShinR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(254.89, 665.208)
-rotation = -0.00521255
-scale = Vector2(0.999927, 0.999927)
+position = Vector2(227.904, 672.065)
+rotation = 0.0257145
+scale = Vector2(1.00032, 1.00032)
 texture = ExtResource("11_70hv0")
 offset = Vector2(20, 31)
 
+[node name="GBotLegR" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(264.759, 558.19)
+rotation = 0.102439
+scale = Vector2(1.00043, 1.00043)
+texture = ExtResource("9_i2e8t")
+offset = Vector2(-8, 52)
+
 [node name="GBotArmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(230.005, 394.007)
-rotation = -0.432357
-scale = Vector2(0.999891, 0.999891)
+position = Vector2(229.77, 406.208)
+rotation = -0.130807
+scale = Vector2(1.00014, 1.00014)
 texture = ExtResource("14_utwlt")
 offset = Vector2(8, 35)
 
 [node name="GBotForearmR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(249.678, 508.242)
-rotation = 0.0594957
-scale = Vector2(0.99988, 0.99988)
+position = Vector2(214.652, 521.224)
+rotation = -0.366459
+scale = Vector2(1.00006, 1.00006)
 texture = ExtResource("15_kih0c")
 offset = Vector2(24, 44)
 
 [node name="GBotFootR" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(245.469, 776.254)
-rotation = -0.0466392
-scale = Vector2(0.999925, 0.999925)
+position = Vector2(215.045, 782.81)
+rotation = -0.116965
+scale = Vector2(1.00058, 1.00058)
 texture = ExtResource("13_u7x0b")
 offset = Vector2(53, 8)
 
@@ -1883,7 +1884,7 @@ modification_stack = SubResource("SkeletonModificationStack2D_bfbt0")
 
 [node name="Hip" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D"]
 position = Vector2(326, 536)
-scale = Vector2(0.999947, 0.999947)
+scale = Vector2(0.999944, 0.999944)
 rest = Transform2D(1, 0, 0, 1, 334, 551)
 
 [node name="LegR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
@@ -1988,7 +1989,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="ForeArmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
 position = Vector2(-2.9919, 109.015)
 rotation = -0.174386
-scale = Vector2(0.999829, 0.999829)
+scale = Vector2(0.999828, 0.999828)
 rest = Transform2D(1, 0, 0, 1, -3, 109)
 auto_calculate_length_and_angle = false
 length = 90.34
@@ -2014,7 +2015,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Jaw" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head"]
 position = Vector2(-85, -30)
-scale = Vector2(0.999972, 0.999972)
+scale = Vector2(0.999956, 0.999956)
 rest = Transform2D(1, 0, 0, 1, -85, -30)
 auto_calculate_length_and_angle = false
 length = 209.019
