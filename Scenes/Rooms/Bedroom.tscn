@@ -28,6 +28,6 @@ debug_color = Color(0.976029, 0, 0.414963, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="Bed" type="Sprite2D" parent="."]
-position = Vector2(971.1, 571.5)
+position = Vector2(971, 686)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_tyjpt")
