@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ce3o721hqey87" path="res://Scripts/Rooms/kitchen.gd" id="1_4lad2"]
 [ext_resource type="PackedScene" uid="uid://bciet2c3ay2wt" path="res://Scenes/Other/BadThought.tscn" id="2_ociu6"]
-[ext_resource type="Texture2D" uid="uid://mxl1vgopy805" path="res://Assets/IMG_8244.png" id="3_egoxg"]
+[ext_resource type="Texture2D" uid="uid://bpf0gpgandxqd" path="res://Assets/Environment/Ground.png" id="3_egoxg"]
 [ext_resource type="Texture2D" uid="uid://cu2fpgtdjfu4x" path="res://Assets/Props/Table.png" id="4_egoxg"]
 [ext_resource type="Texture2D" uid="uid://nixihknj3kf5" path="res://Assets/Mother.png" id="4_obgb4"]
 [ext_resource type="Texture2D" uid="uid://bw7qghsn2w8e3" path="res://Assets/Props/Chair.png" id="6_obgb4"]
@@ -16,21 +16,19 @@ bad_thought_scene = ExtResource("2_ociu6")
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(960, 1970)
 rotation = -1.25581
-scale = Vector2(1.24, 1.24)
 texture = ExtResource("3_egoxg")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1409, 614)
+position = Vector2(1415, 704)
 rotation = 0.322091
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_obgb4")
 
 [node name="Table" type="Sprite2D" parent="."]
-position = Vector2(1212.23, 666.632)
-rotation = 0.131778
+position = Vector2(1175, 729)
+rotation = 0.167738
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("4_egoxg")
 
@@ -59,7 +57,7 @@ position = Vector2(1325, -68)
 position = Vector2(1976, -63)
 
 [node name="Chair" type="Sprite2D" parent="."]
-position = Vector2(950.232, 597.632)
-rotation = 0.0326573
+position = Vector2(907, 658)
+rotation = -0.0546137
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_obgb4")

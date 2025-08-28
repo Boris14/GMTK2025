@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dnabcrl0l7wb2" path="res://Assets/Emotes/emote_drops.png" id="4_dscc8"]
 [ext_resource type="Texture2D" uid="uid://dymcbnj1xdeox" path="res://Assets/Emotes/emote_idea.png" id="5_la1f3"]
 [ext_resource type="Texture2D" uid="uid://cc6li3yu1kjj0" path="res://Assets/Emotes/emote_star.png" id="6_3s13x"]
-[ext_resource type="Texture2D" uid="uid://mxl1vgopy805" path="res://Assets/IMG_8244.png" id="7_ciq5a"]
+[ext_resource type="Texture2D" uid="uid://bpf0gpgandxqd" path="res://Assets/Environment/Ground.png" id="7_ciq5a"]
 [ext_resource type="Texture2D" uid="uid://nixihknj3kf5" path="res://Assets/Mother.png" id="8_ciq5a"]
 [ext_resource type="PackedScene" uid="uid://dr3wuuko4m517" path="res://Scenes/Dialog/AnswerBubble.tscn" id="8_s01a7"]
 [ext_resource type="Texture2D" uid="uid://dlorolsbfat16" path="res://Assets/Emotes/emote_heart.png" id="9_wblgs"]
@@ -22,14 +22,11 @@ question_time = 5.0
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(960, 1970)
-rotation = -4.10599
-scale = Vector2(1.24, 1.24)
 texture = ExtResource("7_ciq5a")
 
 [node name="Teacher" type="Sprite2D" parent="."]
-position = Vector2(1487, 561)
+position = Vector2(1439, 709)
 rotation = 0.409933
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_ciq5a")
@@ -56,7 +53,7 @@ scale = Vector2(2.5, 2.5)
 
 [node name="TriggerArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(964, 589)
+position = Vector2(929, 664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("CircleShape2D_7nha4")
@@ -64,7 +61,7 @@ debug_color = Color(0.976029, 0, 0.414963, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="Desk" type="Sprite2D" parent="."]
-position = Vector2(1049, 602)
+position = Vector2(1040, 703)
 rotation = 0.0491186
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_ciq5a")

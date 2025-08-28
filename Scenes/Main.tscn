@@ -130,9 +130,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_bmxlf")
 }
 
-[node name="Planet" type="Sprite2D" parent="."]
+[node name="Planet" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(960, 1970)
+
+[node name="Background" type="Sprite2D" parent="Planet"]
+show_behind_parent = true
 texture = ExtResource("2_grg3l")
 
 [node name="Ground" type="Sprite2D" parent="Planet"]
@@ -152,15 +155,14 @@ scale = Vector2(0.999999, 0.999999)
 
 [node name="WayToSchool" parent="Planet" instance=ExtResource("8_50glp")]
 unique_name_in_owner = true
+show_behind_parent = true
 position = Vector2(2024.81, 838.243)
 rotation = 2.41675
-scale = Vector2(1, 1)
 
 [node name="Classroom" parent="Planet" instance=ExtResource("6_v1gob")]
 unique_name_in_owner = true
 position = Vector2(150.04, 2186.32)
 rotation = -2.75667
-scale = Vector2(1, 1)
 
 [node name="DogChase" parent="Planet" instance=ExtResource("5_pbw6q")]
 unique_name_in_owner = true
