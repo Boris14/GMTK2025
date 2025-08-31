@@ -3,7 +3,7 @@ extends Area2D
 
 @export var speed := 700.0
 @export var gravity_force := 1000.0
-@export var bounce_impulse := -400.0
+@export var bounce_impulse := -600.0
 @export var max_fall_speed := 1200.0
 
 var path_follow: PathFollow2D

@@ -26,12 +26,9 @@ func _process(delta: float) -> void:
 
 func _on_moon_visible_on_screen_notifier_2d_screen_entered() -> void:
 	day_night_animation_player.play("to_night")
-	print("MOON ENTERED")
-	pass # Replace with function body.
+	GlobalAudio.play_ambient(false)
 
 
 func _on_sun_visible_on_screen_notifier_2d_screen_entered() -> void:
 	day_night_animation_player.play("to_day")
-	print("SuN ENTERED")
-	
-	pass # Replace with function body.
+	GlobalAudio.play_ambient(true)

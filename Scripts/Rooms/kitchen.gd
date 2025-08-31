@@ -24,6 +24,7 @@ func start_room(in_player: Player):
 	player.play_anim(Player.EPlayerAnimation.EAT)
 	spawn_thought_timer.start(spawn_thought_delay)
 	room_duration_timer.start(room_duration)
+	GlobalAudio.set_is_teacher_talking_active(true)
 
 
 func _ready():
@@ -50,6 +51,7 @@ func _ready():
 
 
 func stop_room(thought_to_delay: BadThought = null):
+	GlobalAudio.set_is_teacher_talking_active(false)
 	spawn_thought_timer.stop()
 	for thought in bad_thoughts:
 		if thought_to_delay != thought:

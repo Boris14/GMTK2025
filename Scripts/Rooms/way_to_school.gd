@@ -15,7 +15,7 @@ signal room_completed(room: Node2D)
 func start_room():
 	car.visible = true
 	car.global_position = Vector2.ZERO
-
+	GlobalAudio.play_car_drive()
 
 func _ready():
 	if Engine.is_editor_hint():
