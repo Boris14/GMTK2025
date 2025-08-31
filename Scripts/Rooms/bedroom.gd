@@ -51,6 +51,6 @@ func _on_sleep_timer_timeout():
 
 
 func _on_area_entered_trigger_area(area: Area2D):
-	if area.owner.is_in_group("Player"):
+	if area.owner and area.owner.is_in_group("Player"):
 		start_room(area.owner as Player)
 		trigger_area.area_entered.disconnect(_on_area_entered_trigger_area)

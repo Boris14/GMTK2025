@@ -13,6 +13,7 @@ var horizontal_velocity := 0.0
 
 
 func _ready():
+	await get_tree().create_timer(1.0).timeout
 	area_entered.connect(_on_area_entered_area)
 
 

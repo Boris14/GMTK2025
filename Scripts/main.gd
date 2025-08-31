@@ -75,3 +75,8 @@ func _win():
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+	elif event.is_action_pressed("ui_accept"):
+		if Engine.time_scale > 1.0:
+			Engine.time_scale = 1.0
+		else:
+			Engine.time_scale = 5.0

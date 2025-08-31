@@ -19,13 +19,13 @@ point_count = 12
 
 [sub_resource type="Curve2D" id="Curve2D_vpy2q"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1264, 714, -12.2862, 107.442, 12.2862, -107.442, 1325, 404, 47.19, 24.2, -47.19, -24.2, 1325, 123, 30.0571, -53.8569, -30.0571, 53.8569, 1220, 264, 25.9617, -55.3965, -25.9617, 55.3965, 1142, 415, 0, 0, 0, 0, 1097, 538, 0, 0, 0, 0, 1056, 655, 0, 0, 0, 0, 1030, 730)
+"points": PackedVector2Array(0, 0, 0, 0, 1270, 712.902, -19.4872, 54.9184, 19.4872, -54.9184, 1324.15, 569.136, -15.1769, 35.1453, 15.1769, -35.1453, 1377.41, 440.418, -16.6691, 27.6188, 16.6691, -27.6188, 1435.17, 317.82, -39.3962, -1.03573, 39.3962, 1.03573, 1536.76, 210.219, -16.948, -64.0041, 16.948, 64.0041, 1648.15, 384.831, -8.78822, -44.6771, 8.78822, 44.6771, 1682.62, 589.178, 0.827987, -55.4916, -0.827987, 55.4916, 1700.35, 794.319, 10.2056, -47.7623, -10.2056, 47.7623, 1708.85, 1046.66)
 }
-point_count = 8
+point_count = 9
 
 [node name="WayToSchool" type="Node2D"]
 script = ExtResource("1_wyueo")
-car_speed = 800.0
+car_speed = 700.0
 garbage_scene = ExtResource("2_w1ktf")
 
 [node name="Planet" type="Sprite2D" parent="."]
@@ -35,7 +35,7 @@ texture = ExtResource("3_vpy2q")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(180, 851)
+position = Vector2(205, 886)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("CircleShape2D_7nha4")
@@ -60,6 +60,7 @@ position = Vector2(-0.172607, -114.836)
 shape = SubResource("RectangleShape2D_wyueo")
 
 [node name="CarPath2D" type="Path2D" parent="."]
+position = Vector2(0, -41)
 curve = SubResource("Curve2D_w1ktf")
 
 [node name="CarPathFollow2D" type="PathFollow2D" parent="CarPath2D"]
@@ -69,18 +70,19 @@ rotation = -2.00742
 loop = false
 
 [node name="ThrowPath2D" type="Path2D" parent="."]
-position = Vector2(-78, -48.9016)
+position = Vector2(-775.9, 337.216)
+rotation = -0.255507
 curve = SubResource("Curve2D_vpy2q")
 
 [node name="ThrowPathFollow2D" type="PathFollow2D" parent="ThrowPath2D"]
 unique_name_in_owner = true
-position = Vector2(1264, 714)
-rotation = -1.3765
+position = Vector2(1270, 712.902)
+rotation = -1.21058
 loop = false
 
 [node name="ThrowArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1191, 664.098)
+position = Vector2(634.237, 695.998)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThrowArea"]
 shape = SubResource("CircleShape2D_7nha4")
