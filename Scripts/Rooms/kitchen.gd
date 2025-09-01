@@ -24,8 +24,8 @@ func start_room(in_player: Player):
 	player.play_anim(Player.EPlayerAnimation.EAT)
 	spawn_thought_timer.start(spawn_thought_delay)
 	room_duration_timer.start(room_duration)
+	await get_tree().create_timer(spawn_thought_delay).timeout
 	GlobalAudio.set_is_teacher_talking_active(true)
-
 
 func _ready():
 	if Engine.is_editor_hint():

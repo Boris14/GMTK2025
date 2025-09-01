@@ -1,39 +1,38 @@
 [gd_scene load_steps=7 format=3 uid="uid://du0o3yhvq02fu"]
 
 [ext_resource type="Script" uid="uid://dnornunwbn1v2" path="res://Scripts/Rooms/dog_chase.gd" id="1_akxw6"]
-[ext_resource type="Texture2D" uid="uid://mxl1vgopy805" path="res://Assets/IMG_8244.png" id="2_akxw6"]
+[ext_resource type="Texture2D" uid="uid://bpf0gpgandxqd" path="res://Assets/Environment/Ground.png" id="2_akxw6"]
 [ext_resource type="Texture2D" uid="uid://c2busnkp64s3r" path="res://Assets/Dog.png" id="3_akxw6"]
 
 [sub_resource type="Curve2D" id="Curve2D_odece"]
 _data = {
-"points": PackedVector2Array(-28.937, 118.825, 28.937, -118.825, -324, 562, -109.323, 175.774, 109.323, -175.774, -140, 157, -81.5838, 68.265, 81.5838, -68.265, 184, -185, -110.265, 60.6699, 110.265, -60.6699, 389, -294, -74.6658, 20.2038, 74.6658, -20.2038, 610, -370, -128.667, 9.15236, 128.667, -9.15236, 874, -422, -62.6739, -8.10701, 62.6739, 8.10701, 1146, -419, -80.406, -18.1562, 80.406, 18.1562, 1341, -377, -77.8123, -28.5312, 77.8123, 28.5312, 1528, -315, -51.8749, -33.7187, 51.8749, 33.7187, 1699, -211, -59.6561, -57.0623, 59.6561, 57.0623, 1860, -79)
+"points": PackedVector2Array(-28.937, 118.825, 28.937, -118.825, -307, 564, -109.323, 175.774, 109.323, -175.774, -122, 162, -110.265, 60.6699, 110.265, -60.6699, 261, -224, -146.408, 0.826444, 146.408, -0.826444, 863, -382, -89.8213, -43.2636, 89.8213, 43.2636, 1288, -312, -70.7055, -52.5493, 70.7055, 52.5493, 1576, -159, -59.6561, -57.0623, 59.6561, 57.0623, 1747, -11)
 }
-point_count = 11
+point_count = 7
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m8nop"]
-radius = 31.257
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akxw6"]
+radius = 47.9664
+height = 194.388
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akxw6"]
 radius = 21.3776
 
 [node name="DogChase" type="Node2D"]
 script = ExtResource("1_akxw6")
+dog_stutter_duration = 0.23
 
 [node name="Planet" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(960, 1970)
-rotation = 0.830175
-scale = Vector2(1.24, 1.24)
 texture = ExtResource("2_akxw6")
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-32, 1040)
+position = Vector2(74, 1109)
 curve = SubResource("Curve2D_odece")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
-position = Vector2(-324, 562)
+position = Vector2(-307, 564)
 rotation = -1.33192
 loop = false
 metadata/_edit_lock_ = true
@@ -45,13 +44,16 @@ position = Vector2(-393, 1716)
 [node name="Sprite2D" type="Sprite2D" parent="Dog"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_akxw6")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dog"]
-shape = SubResource("CircleShape2D_m8nop")
+position = Vector2(0, 28)
+rotation = 1.53338
+shape = SubResource("CapsuleShape2D_akxw6")
 
 [node name="TriggerArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(262, 765)
+position = Vector2(284, 853)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 shape = SubResource("CircleShape2D_akxw6")

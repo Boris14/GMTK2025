@@ -31,9 +31,9 @@ func _physics_process(delta):
 
 
 	elif is_instance_valid(player):
-		var new_position = position + (player.position - position).normalized() * speed * delta
+		var new_position = global_position + (player.position - global_position).normalized() * speed * delta
 		var sway_offset = Vector2(sin(Time.get_ticks_msec() / 1000.0 * sway_speed) * sway_strength, 0)
-		position = new_position + sway_offset
+		global_position = new_position + sway_offset
 
 
 func remove(pull_up_duration: float):

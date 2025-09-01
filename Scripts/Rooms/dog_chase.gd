@@ -17,6 +17,7 @@ var dog_stutter_timer : Timer
 var dog_bite_timer : Timer
 var is_dog_stuttered := false
 var player : Player
+var is_dog_revesed := false
 
 
 func _ready():
@@ -42,15 +43,25 @@ func _ready():
 
 
 func start_room():
+	room_completed.connect(_on_room_completed)
 	dog.visible = true
 	dog.area_entered.connect(_on_area_entered_dog)
 
 
 func _process(delta):
+	if is_dog_revesed:
+		if dog_path_follow.progress_ratio > 0.1:
+			dog_path_follow.progress -= delta * dog_speed
+			dog.global_position = dog_path_follow.global_position
+			dog.global_rotation = dog_path_follow.global_rotation
+		else:
+			dog.visible = false
+		return
 	if dog.visible and not is_dog_stuttered:
 		if dog_path_follow.progress_ratio < 1.0:
 			dog_path_follow.progress += delta * dog_speed
 			dog.global_position = dog_path_follow.global_position
+			dog.global_rotation = dog_path_follow.global_rotation
 			_process_bark(delta)
 		else:
 			is_dog_stuttered = true
@@ -97,3 +108,8 @@ func _on_dog_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and not is_dog_stuttered:
 		is_dog_stuttered = true
 		dog_stutter_timer.start(dog_stutter_duration)
+
+
+func _on_room_completed(room: Node2D):
+	dog.scale.x *= -1
+	is_dog_revesed = true

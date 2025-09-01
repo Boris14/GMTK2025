@@ -42,7 +42,7 @@ func _physics_process(delta):
 		
 		# Simple motion with bounce (just falling downward)
 		position.y += vertical_velocity * delta
-		position.x += horizontal_velocity * delta  # Optional: keep horizontal movement
+		position.x -= horizontal_velocity * delta  # Optional: keep horizontal movement
 
 func bounce():
 	if has_bounced:
