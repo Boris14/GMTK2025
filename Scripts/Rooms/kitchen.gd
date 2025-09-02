@@ -9,13 +9,13 @@ signal room_completed(room: Node2D)
 @export var post_room_delay := 1.5
 
 @onready var trigger_area := %TriggerArea as Area2D
-@onready var thought_spawns_container := %ThoughtSpawns as Node2D
+@onready var thought_spawns_container := %ThoughtSpawns as Control
 
 var player: Player
 var spawn_thought_timer: Timer
 var room_duration_timer: Timer
-var thought_spawns : Array[Marker2D]
-var used_spawns : Array[Marker2D]
+var thought_spawns : Array[Control]
+var used_spawns : Array[Control]
 var bad_thoughts: Array[BadThought]
 
 

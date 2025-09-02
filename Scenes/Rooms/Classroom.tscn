@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://k2p5068l60fl" path="res://Scripts/Rooms/classroom.gd" id="1_7nha4"]
 [ext_resource type="Texture2D" uid="uid://f8y20vlk73s7" path="res://Assets/Emotes/emote_heartBroken.png" id="2_ciq5a"]
-[ext_resource type="PackedScene" uid="uid://b35x4b24scnw8" path="res://Scenes/Dialog/QuestionBubble.tscn" id="3_ciq5a"]
+[ext_resource type="PackedScene" uid="uid://cnt6mvith0sid" path="res://Scenes/Dialog/QuestionBubble.tscn" id="3_ciq5a"]
 [ext_resource type="Texture2D" uid="uid://dnabcrl0l7wb2" path="res://Assets/Emotes/emote_drops.png" id="4_dscc8"]
 [ext_resource type="Texture2D" uid="uid://dymcbnj1xdeox" path="res://Assets/Emotes/emote_idea.png" id="5_la1f3"]
 [ext_resource type="Texture2D" uid="uid://cc6li3yu1kjj0" path="res://Assets/Emotes/emote_star.png" id="6_3s13x"]
@@ -31,26 +31,6 @@ rotation = 0.409933
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_ciq5a")
 
-[node name="QuestionBubble" parent="." instance=ExtResource("3_ciq5a")]
-unique_name_in_owner = true
-position = Vector2(1550, 318)
-scale = Vector2(2.5, 2.5)
-
-[node name="AnswerBubble1" parent="." instance=ExtResource("8_s01a7")]
-unique_name_in_owner = true
-position = Vector2(716, 305)
-scale = Vector2(2.5, 2.5)
-
-[node name="AnswerBubble2" parent="." instance=ExtResource("8_s01a7")]
-unique_name_in_owner = true
-position = Vector2(958, 305)
-scale = Vector2(2.5, 2.5)
-
-[node name="AnswerBubble3" parent="." instance=ExtResource("8_s01a7")]
-unique_name_in_owner = true
-position = Vector2(1195, 307)
-scale = Vector2(2.5, 2.5)
-
 [node name="TriggerArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(960, 664)
@@ -65,3 +45,68 @@ position = Vector2(1040, 703)
 rotation = 0.0491186
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_ciq5a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Quiz" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionBubble" parent="CanvasLayer/Quiz" instance=ExtResource("3_ciq5a")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1483.0
+offset_top = 306.0
+offset_right = 1663.0
+offset_bottom = 486.0
+
+[node name="AnswerBubble1" parent="CanvasLayer/Quiz" instance=ExtResource("8_s01a7")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 431.0
+offset_top = 306.0
+offset_right = 531.0
+offset_bottom = 406.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AnswerBubble2" parent="CanvasLayer/Quiz" instance=ExtResource("8_s01a7")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 622.0
+offset_top = 310.0
+offset_right = 722.0
+offset_bottom = 410.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AnswerBubble3" parent="CanvasLayer/Quiz" instance=ExtResource("8_s01a7")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 900.0
+offset_top = 300.0
+offset_right = 1000.0
+offset_bottom = 400.0
+grow_horizontal = 1
+grow_vertical = 1

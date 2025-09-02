@@ -63,6 +63,7 @@ func _on_area_entered_trigger_area(area: Area2D):
 func start(question_index: int):
 	if question_index >= questions_answers.size():
 		return
+	%Quiz.visible = true
 	for i in range(questions_answers[question_index].size() - 1):
 		answer_bubbles[i].dialog_texture = questions_answers[question_index][i]
 	question_bubble.dialog_texture = questions_answers[question_index][answer_bubbles.size()]

@@ -1,22 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://bciet2c3ay2wt"]
+[gd_scene load_steps=3 format=3 uid="uid://bciet2c3ay2wt"]
 
 [ext_resource type="Script" uid="uid://ihc2ba1o0ims" path="res://Scripts/Other/bad_thought.gd" id="1_dok4n"]
 [ext_resource type="Texture2D" uid="uid://bo400w103h8mn" path="res://Assets/Props/text_bubble.png" id="2_dok4n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dok4n"]
-radius = 45.0
-
-[node name="BadThought" type="Area2D"]
+[node name="BadThought" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 150.0
 script = ExtResource("1_dok4n")
 speed = 110.0
 
 [node name="Rope" type="Line2D" parent="."]
+show_behind_parent = true
+position = Vector2(75, 75)
 points = PackedVector2Array(0, -800, 0, 0)
 width = 2.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_dok4n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_dok4n")
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_dok4n")
+texture_pressed = ExtResource("2_dok4n")
+texture_hover = ExtResource("2_dok4n")
+texture_disabled = ExtResource("2_dok4n")
+texture_focused = ExtResource("2_dok4n")
+ignore_texture_size = true
+stretch_mode = 5

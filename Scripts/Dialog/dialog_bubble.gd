@@ -1,6 +1,6 @@
 #@tool
 class_name DialogBubble
-extends Node2D
+extends Control
 
 signal clicked(dialog_bubble)
 
@@ -15,8 +15,8 @@ signal clicked(dialog_bubble)
 		dialog_texture = new_dialog_texture
 		_on_dialog_texture_changed()
 
-@onready var background := $Background as Sprite2D
-@onready var dialog := $DialogSprite as Sprite2D
+@onready var dialog := $DialogSprite as TextureRect
+@onready var button := $TextureButton as TextureButton
 
 var top_position: Vector2
 var bottom_position: Vector2

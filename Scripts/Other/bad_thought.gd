@@ -1,5 +1,5 @@
 class_name BadThought
-extends Area2D
+extends Control
 
 signal entered_player(thought: BadThought)
 
@@ -13,7 +13,8 @@ var mouse_offset := Vector2.ZERO
 var has_reached_player := false
 
 func _ready():
-	area_entered.connect(_on_area_entered_area)
+	pass
+	#area_entered.connect(_on_area_entered_area)
 
 	
 func set_player(in_player: Player):
@@ -56,10 +57,10 @@ func _on_area_entered_area(area: Area2D):
 	if area.owner.is_in_group("Player"):
 		entered_player.emit(self)
 		has_reached_player = true
-		area_entered.disconnect(_on_area_entered_area)
+		#area_entered.disconnect(_on_area_entered_area)
 
 
-func _input_event(viewport, event, shape_idx):
+func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT: 
 		is_under_mouse_control = event.pressed
 		if event.pressed:
