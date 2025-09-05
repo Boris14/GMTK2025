@@ -34,6 +34,7 @@ func _physics_process(delta):
 			car.global_position = car_path_follow.global_position
 			car.rotation = car_path_follow.rotation
 		else:
+			room_completed.emit(self)
 			car.queue_free()
 
 

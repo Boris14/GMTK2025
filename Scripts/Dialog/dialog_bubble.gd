@@ -58,7 +58,6 @@ func _on_dialog_texture_changed():
 	if is_instance_valid(dialog):
 		dialog.texture = dialog_texture
 
-
-func _input_event(viewport, event, shape_idx):
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		clicked.emit(self)

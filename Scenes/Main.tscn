@@ -136,6 +136,7 @@ position = Vector2(960, 1970)
 
 [node name="Background" type="Sprite2D" parent="Planet"]
 show_behind_parent = true
+z_index = -2
 texture = ExtResource("2_grg3l")
 
 [node name="Ground" type="Sprite2D" parent="Planet"]

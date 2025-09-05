@@ -8,24 +8,21 @@
 top_level = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 180.0
-offset_bottom = 180.0
+offset_right = 220.0
+offset_bottom = 220.0
 script = ExtResource("1_b1twr")
 dialog_texture = ExtResource("2_taf4o")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("3_p3kkp")
-texture_pressed = ExtResource("3_p3kkp")
-texture_hover = ExtResource("3_p3kkp")
-texture_disabled = ExtResource("3_p3kkp")
-texture_focused = ExtResource("3_p3kkp")
-ignore_texture_size = true
+mouse_filter = 2
+texture = ExtResource("3_p3kkp")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Line2D" type="Line2D" parent="."]
@@ -35,6 +32,7 @@ points = PackedVector2Array(0, 0, 0, -600)
 width = 2.0
 
 [node name="DialogSprite" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,4 +45,5 @@ offset_right = 16.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_taf4o")

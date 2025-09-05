@@ -68,7 +68,6 @@ func _on_room_completed(room: Node2D):
 func _on_world_rotated(angle_delta: float):
 	planet.rotation += angle_delta 
 
-
 func _win():
 	get_tree().change_scene_to_file("res://Scenes/TestMainMenu.tscn")
 

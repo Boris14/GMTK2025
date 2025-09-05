@@ -51,9 +51,10 @@ func bounce():
 	horizontal_velocity = speed * cos(rotation)
 	vertical_velocity = bounce_impulse
 	path_follow = null
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
+	show_behind_parent = true
 	z_as_relative = false
-
+	z_index = -1
 
 func _on_area_entered_area(area: Area2D):
 	if has_bounced:

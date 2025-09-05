@@ -7,15 +7,15 @@ signal entered_player(thought: BadThought)
 @export var sway_strength := 6.0
 @export var sway_speed := 4.0
 
+@onready var area := $Area2D as Area2D
+
 var player: Player
 var is_under_mouse_control := false
 var mouse_offset := Vector2.ZERO
 var has_reached_player := false
 
 func _ready():
-	pass
-	#area_entered.connect(_on_area_entered_area)
-
+	area.area_entered.connect(_on_area_entered_area)
 	
 func set_player(in_player: Player):
 	player = in_player
@@ -57,11 +57,10 @@ func _on_area_entered_area(area: Area2D):
 	if area.owner.is_in_group("Player"):
 		entered_player.emit(self)
 		has_reached_player = true
-		#area_entered.disconnect(_on_area_entered_area)
-
+		area.monitoring = false
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT: 
 		is_under_mouse_control = event.pressed
 		if event.pressed:
-			mouse_offset = global_position - event.position
+			mouse_offset = -event.position

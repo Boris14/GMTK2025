@@ -47,6 +47,7 @@ func _on_sleep_timer_timeout():
 	else:
 		player.play_anim(Player.EPlayerAnimation.DANCE)
 		await get_tree().create_timer(dance_duration).timeout
+		Events.is_first_sleep = true
 		Events.win.emit()
 
 
